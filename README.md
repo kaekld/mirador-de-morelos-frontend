@@ -1,6 +1,6 @@
 Clonar el repositorio 
 ```shell
-git@github.com:kaekld/mirador-de-morelos-frontend.git
+clone https://github.com/kaekld/mirador-de-morelos-frontend.git
 ```
 Instalar dependencias dentro del proyecto
 ```shell
