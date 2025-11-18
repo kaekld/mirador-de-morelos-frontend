@@ -1,0 +1,28 @@
+<section class="bg-amber-950 h-3/4 relative">
+  <img [src]="banners()[0].img" class="object-cover w-full h-full" />
+
+  <div
+    class="bg-linear-to-r from-gray-950 to-transparent absolute top-0 left-0 w-full h-full opacity-90"
+  ></div>
+
+  <div class="absolute top-0 left-0 w-full h-full px-8">
+    <div class="py-30 flex flex-col gap-5 w-1/2">
+      <!-- Title -->
+      <div>
+        <span class="text-7xl text-white font-bold">
+          {{ banners()[0].title }}
+        </span>
+      </div>
+
+      <!-- Description  -->
+      <div class="text-white text-xl">
+        {{ banners()[0].description }}
+      </div>
+
+      <!-- Button -->
+      <a [class]="banners()[0].buttonClass">
+        {{ banners()[0].buttonText }}
+      </a>
+    </div>
+  </div>
+</section>
