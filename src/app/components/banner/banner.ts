@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { SlideControl } from "./slide-control/slide-control";
 
 export interface BannerContent {
   title: string,
@@ -10,12 +11,12 @@ export interface BannerContent {
 
 @Component({
   selector: 'app-banner',
-  imports: [],
+  imports: [SlideControl],
   templateUrl: './banner.html',
 })
 export class Banner {
 
-  
+
   banners = signal<BannerContent[]>([
     {
       title: "ENCUENTRA LOS MEJORES SITIOS DE MORELOS",

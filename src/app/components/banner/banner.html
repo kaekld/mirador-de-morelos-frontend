@@ -1,4 +1,7 @@
-<section class="bg-amber-950 h-3/4 relative">
+<section class="bg-amber-950 relative h-[70vh] w-full">
+
+  <app-slide-control class="absolute top-0 left-0 w-full z-10 pt-10 "></app-slide-control>
+
   <img [src]="banners()[0].img" class="object-cover w-full h-full" />
 
   <div
@@ -6,7 +9,7 @@
   ></div>
 
   <div class="absolute top-0 left-0 w-full h-full px-8">
-    <div class="py-30 flex flex-col gap-5 w-1/2">
+    <div class="py-25 flex flex-col gap-5 w-1/2">
       <!-- Title -->
       <div>
         <span class="text-7xl text-white font-bold">
@@ -25,4 +28,6 @@
       </a>
     </div>
   </div>
+
+
 </section>
