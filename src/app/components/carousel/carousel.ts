@@ -1,10 +1,11 @@
 import { Component} from '@angular/core';
 import BannerContent from '../../models/Banner';
 import { Banner } from "../banner/banner";
+import { SlideControl } from "../banner/slide-control/slide-control";
 
 @Component({
   selector: 'app-carousel',
-  imports: [Banner],
+  imports: [Banner, SlideControl],
   templateUrl: './carousel.html',
 })
 export class Carousel {
