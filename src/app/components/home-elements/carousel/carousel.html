@@ -7,11 +7,11 @@
 
 @if(changerClass){
   <div class="relative">
-    <app-banner class="top-0 left-0 w-full animate-fade-in"
+    <app-banner class="top-0 left-0 w-full animate-fade-in duration-150"
                 [banner]="banners[selectedBanner()]">
     </app-banner>
 
-    <app-banner class="top-0 left-0 w-full animate-fade-out absolute"
+    <app-banner class="top-0 left-0 w-full animate-fade-out duration-150 absolute"
                 [banner]="banners[previousBanner()]">
     </app-banner>
   </div>
@@ -19,11 +19,11 @@
 
 @if(!changerClass){
   <div class="relative">
-    <app-banner class="top-0 left-0 w-full animate-fade-in"
+    <app-banner class="top-0 left-0 w-full animate-fade-in duration-150"
                 [banner]="banners[selectedBanner()]">
     </app-banner>
 
-    <app-banner class="top-0 left-0 w-full animate-fade-out absolute"
+    <app-banner class="top-0 left-0 w-full animate-fade-out duration-150 absolute"
                 [banner]="banners[previousBanner()]">
     </app-banner>
   </div>
