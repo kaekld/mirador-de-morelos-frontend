@@ -5,17 +5,18 @@
       <h2 class="text-4xl font-bold">Noticias más recientes</h2>
     </div>
 
+    <!-- * Botones de desplazamiento  -->
     <div class="flex gap-8 items-end">
 
-      <button class="cursor-pointer">
-        <div class="rounded-full bg-gray-400/50 w-fit h-fit">
-          <lucide-angular [img]="ChevronLeft" class="size-13"></lucide-angular>
+      <button class="cursor-pointer" (click)="scrollLeft()">
+        <div class="rounded-full bg-gray-300/50 active:bg-gray-400/50 duration-400 w-fit h-fit">
+          <lucide-angular [img]="ChevronLeft" class="size-10"></lucide-angular>
         </div>
       </button>
 
-      <button class="cursor-pointer">
-        <div class="rounded-full bg-gray-400/50 w-fit h-fit">
-          <lucide-angular [img]="ChevronRight" class="size-13"></lucide-angular>
+      <button class="cursor-pointer" (click)="scrollRight()">
+        <div class="rounded-full bg-gray-300/50 active:bg-gray-400/50 duration-400 w-fit h-fit">
+          <lucide-angular [img]="ChevronRight" class="size-10"></lucide-angular>
         </div>
       </button>
 
@@ -23,7 +24,10 @@
 
   </div>
 
-  <div class="py-8 flex gap-5">
+  <!-- * Tarjetas de noticias  -->
+  <div #cardsContainer
+       class="py-8 flex gap-5 overflow-x-hidden"
+  >
     <app-news-card></app-news-card>
     <app-news-card></app-news-card>
     <app-news-card></app-news-card>

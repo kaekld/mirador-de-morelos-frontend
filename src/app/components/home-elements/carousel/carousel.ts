@@ -27,14 +27,14 @@ export class Carousel {
       buttonClass: "text-2xl text-white bg-red-900 font-bold inline-block w-fit px-8 py-2 rounded-xl cursor-pointer hover:bg-red-950 duration-100"
     },
     {
-      title: "ENTERATE DE LO QUE ESTÁ PASANDO EN MORELOS",
+      title: "ENTERATE DE LO QUE ESTÁ PASANDO AQUÍ",
       img: "https://sociedad-noticias.com/wp-content/uploads/2025/07/1-3.webp",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus  erat, facilisis eu lobortis id, interdum nec libero. In feugiat consequat rhoncus. Class aptent taciti sociosqu ad litora torquent per  conubia nostra, per inceptos himenaeos. Aenean sit amet lacinia eros.",
       buttonText: "Ver Noticias",
       buttonClass: "text-2xl text-white bg-blue-900 font-bold inline-block w-fit px-8 py-2 rounded-xl cursor-pointer hover:bg-red-950 duration-100"
     },
     {
-      title: "NO TE PIERDAS DE LO MÁS INTERESANTE DE MORELOS",
+      title: "NO TE PIERDAS DE LO MÁS INTERESANTE",
       img: "https://i0.wp.com/cuautlahoy.com/wp-content/uploads/2025/10/evetno-morelos.jpeg?resize=1000%2C667&ssl=1",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus  erat, facilisis eu lobortis id, interdum nec libero. In feugiat consequat rhoncus. Class aptent taciti sociosqu ad litora torquent per  conubia nostra, per inceptos himenaeos. Aenean sit amet lacinia eros.",
       buttonText: "Ver Publicaciones",

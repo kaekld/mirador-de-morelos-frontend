@@ -1,8 +1,8 @@
-<div class="bg-[#FDD7CC] w-full flex items-center px-8 py-4 justify-center lg:justify-between
+<div class="bg-[#FDD7CC] w-full flex items-center px-8 py-2 justify-center lg:justify-between
             fixed top-0 z-50">
   <!-- LOGO -->
   <div class="hidden lg:block">
-    <img src="logo.png" class="w-50 h-15" />
+    <img src="logo.png" class="w-45 h-12" />
   </div>
 
   <!-- BUTTONS  -->
@@ -12,9 +12,7 @@
     <a class="cursor-pointer"> Noticias </a>
     <a class="cursor-pointer"> Publicaciones </a>
     <a class="cursor-pointer">
-      <svg class="size-12">
-        <use xlink:href="sprite.svg#user"></use>
-      </svg>
+      <lucide-angular [img]="User" class="size-8 stroke-2"></lucide-angular>
     </a>
   </nav>
 </div>
