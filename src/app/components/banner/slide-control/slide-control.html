@@ -1,13 +1,25 @@
-<div class="flex justify-center gap-6">
-  <a class="cursor-pointer">
-    <div class="bg-white w-32 h-2"></div>
+<div class="flex justify-center gap-6 opacity-80">
+  <a class="cursor-pointer"
+     (click)="handleClick(0)"
+  >
+    <div class="bg-gray-400 w-32 h-2"
+         [ngClass]="{'bg-white transform duration-150':selectedBanner() == 0}">
+    </div>
   </a>
 
-  <a class="cursor-pointer">
-    <div class="bg-gray-400 w-32 h-2"></div>
+  <a class="cursor-pointer"
+     (click)="handleClick(1)"
+  >
+    <div class="bg-gray-400 w-32 h-2"
+         [ngClass]="{'bg-white transform duration-150':selectedBanner() == 1}">
+    </div>
   </a>
 
-  <a class="cursor-pointer">
-    <div class="bg-gray-400 w-32 h-2"></div>
+  <a class="cursor-pointer"
+     (click)="handleClick(2)"
+  >
+    <div class="bg-gray-400 w-32 h-2"
+         [ngClass]="{'bg-white transform duration-150':selectedBanner() == 2}">
+    </div>
   </a>
 </div>

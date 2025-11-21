@@ -1,5 +1,30 @@
 
-<app-slide-control class="absolute top-0 left-0 w-full z-10 pt-30 "></app-slide-control>
+<app-slide-control class="absolute top-0 left-0 w-full z-10 pt-30"
+                   [selectedBanner]="selectedBanner()"
+                   (clickBanner)="clickedBanner($event)">
 
-<app-banner [banner]="banners[0]" class="animate-fade-in"></app-banner>
+</app-slide-control>
 
+@if(changerClass){
+  <div class="relative">
+    <app-banner class="top-0 left-0 w-full animate-fade-in"
+                [banner]="banners[selectedBanner()]">
+    </app-banner>
+
+    <app-banner class="top-0 left-0 w-full animate-fade-out absolute"
+                [banner]="banners[previousBanner()]">
+    </app-banner>
+  </div>
+}
+
+@if(!changerClass){
+  <div class="relative">
+    <app-banner class="top-0 left-0 w-full animate-fade-in"
+                [banner]="banners[selectedBanner()]">
+    </app-banner>
+
+    <app-banner class="top-0 left-0 w-full animate-fade-out absolute"
+                [banner]="banners[previousBanner()]">
+    </app-banner>
+  </div>
+}
