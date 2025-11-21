@@ -1,0 +1,36 @@
+<section>
+  <div class="w-full flex justify-between">
+
+    <div class="pb-3 border-b-8">
+      <h2 class="text-4xl font-bold">Noticias más recientes</h2>
+    </div>
+
+    <div class="flex gap-8 items-end">
+
+      <button class="cursor-pointer">
+        <div class="rounded-full bg-gray-400/50 w-fit h-fit">
+          <lucide-angular [img]="ChevronLeft" class="size-13"></lucide-angular>
+        </div>
+      </button>
+
+      <button class="cursor-pointer">
+        <div class="rounded-full bg-gray-400/50 w-fit h-fit">
+          <lucide-angular [img]="ChevronRight" class="size-13"></lucide-angular>
+        </div>
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="py-8 flex gap-5">
+    <app-news-card></app-news-card>
+    <app-news-card></app-news-card>
+    <app-news-card></app-news-card>
+    <app-news-card></app-news-card>
+    <app-news-card></app-news-card>
+  </div>
+
+
+
+</section>

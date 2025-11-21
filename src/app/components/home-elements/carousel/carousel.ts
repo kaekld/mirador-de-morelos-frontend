@@ -1,8 +1,7 @@
 import { Component, DestroyRef, inject, signal} from '@angular/core';
-import BannerContent from '../../models/Banner';
+import BannerContent from '../../../models/Banner';
 import { Banner } from "../banner/banner";
-import { SlideControl } from "../banner/slide-control/slide-control";
-import { NgClass } from '@angular/common';
+import { SlideControl } from '../slide-control/slide-control';
 
 @Component({
   selector: 'app-carousel',
