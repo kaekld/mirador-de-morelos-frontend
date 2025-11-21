@@ -1,12 +1,25 @@
 <section>
   <div class="pb-3 border-b-8 w-fit">
       <h2 class="text-4xl font-bold">Lugares más visitados</h2>
+
+      <div>
+        <lucide-angular [img]="ChevronLeft"></lucide-angular>
+        <lucide-angular [img]="ChevronRight"></lucide-angular>
+      </div>
+
   </div>
 
-  <div class="py-8 flex flex-col gap-5">
-    <app-place-card></app-place-card>
-    <app-place-card></app-place-card>
-    <app-place-card></app-place-card>
+  <div class="py-8 flex flex-row gap-5 flex-nowrap overflow-x-auto">
+    <div class="flex flex-col gap-5">
+      <app-place-card></app-place-card>
+      <app-place-card></app-place-card>
+      <app-place-card></app-place-card>
+    </div>
+    <div class="flex flex-col gap-5">
+      <app-place-card></app-place-card>
+      <app-place-card></app-place-card>
+      <app-place-card></app-place-card>
+    </div>
   </div>
 
 </section>

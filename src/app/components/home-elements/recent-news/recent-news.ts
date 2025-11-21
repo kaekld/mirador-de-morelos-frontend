@@ -18,14 +18,14 @@ export class RecentNews {
 
   scrollLeft(): void {
     this.cardsContainer().nativeElement.scrollBy({
-      left: -325,
+      left: -500,
       behavior: 'smooth'
     });
   }
 
   scrollRight(): void {
     this.cardsContainer().nativeElement.scrollBy({
-      left: 325,
+      left: 500,
       behavior: 'smooth'
     });
   }
