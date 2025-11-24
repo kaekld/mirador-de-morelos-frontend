@@ -1,5 +1,5 @@
 import { Component, DestroyRef, inject, signal} from '@angular/core';
-import BannerContent from '../../../models/Banner';
+import BannerContent from '../../../models/home-models/Banner';
 import { Banner } from "../banner/banner";
 import { SlideControl } from '../slide-control/slide-control';
 

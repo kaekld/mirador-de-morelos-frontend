@@ -1,0 +1,18 @@
+<div class="w-3xs p-3">
+
+  <div>
+    <span class="text-2xl font-bold">ENCUENTRA TU MUNICIPIO</span>
+    <div class="bg-gray-200 rounded-md flex items-center px-2">
+    <lucide-angular [img]="Search" class="size-4 stroke-4 stroke-gray-400 -mb-1"></lucide-angular>
+    <input type="text" class="w-full outline-0 p-1 font-bold text-gray-600">
+  </div>
+
+  <div class="flex flex-col gap-2 mt-2 pl-2">
+    @for (municipio of municipiosMorelos; track $index) {
+      <a class="cursor-pointer hover:text-gray-600">
+        <span>{{municipio}}</span>
+      </a>
+    }
+  </div>
+
+</div>

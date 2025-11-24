@@ -1,0 +1,37 @@
+<section>
+
+  <div class="flex justify-between">
+
+    <div class="pb-3 border-b-8 w-fit">
+      <span class="text-4xl font-bold">Publicaciones más recientes</span>
+    </div>
+
+    <div class="flex gap-8 items-end">
+      <button class="bg-gray-300/50 rounded-full w-fit h-fit active:scale-110
+                     active:bg-gray-400/50 duration-400 cursor-pointer"
+              (click)="scrollLeft()"
+      >
+        <lucide-angular [img]="ChevronLeft" class="size-8"></lucide-angular>
+      </button>
+
+      <button class="bg-gray-300/50 rounded-full w-fit h-fit active:scale-110
+                     active:bg-gray-400/50 duration-400 cursor-pointer"
+              (click)="scrollRight()"
+      >
+        <lucide-angular [img]="ChevronRight" class="size-8"></lucide-angular>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- * Contenedor de publicaciones -->
+  <div #cardsContainer
+       class="py-8 flex gap-5 overflow-x-hidden">
+    <app-post-card></app-post-card>
+    <app-post-card></app-post-card>
+    <app-post-card></app-post-card>
+    <app-post-card></app-post-card>
+    <app-post-card></app-post-card>
+  </div>
+
+</section>

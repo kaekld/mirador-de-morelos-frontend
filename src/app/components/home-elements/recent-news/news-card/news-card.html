@@ -3,24 +3,24 @@
 
     <span class="absolute top-0 left-0 bg-gray-800/70 p-2 ml-4 mt-3
                  text-xl text-white font-bold rounded-md z-10">
-      {{ newInfo().date }}
+      {{ cardInfo().date }}
     </span>
 
     <div class="overflow-hidden">
       <a class="cursor-pointer">
-        <img [src]="newInfo().img"
+        <img [src]="cardInfo().img"
              class="h-52 w-full object-cover hover:scale-105
                     duration-150 delay-100">
       </a>
     </div>
 
-    <span class="text-3xl font-bold cursor-pointer
+    <span class="text-2xl font-bold cursor-pointer
                hover:text-gray-500 duration-200">
-      {{ newInfo().title }}
+      {{ cardInfo().title }}
     </span>
 
-    <p class="text-xl font-light">
-      {{ newInfo().description }}
+    <p class="text-md font-light">
+      {{ cardInfo().description }}
     </p>
   </div>
 </div>

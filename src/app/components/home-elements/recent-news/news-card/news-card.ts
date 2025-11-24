@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
+import NewCard from '../../../../models/home-models/NewCard';
 
 @Component({
   selector: 'app-news-card',
@@ -8,10 +9,6 @@ import { Component, signal } from '@angular/core';
 })
 export class NewsCard {
 
-  newInfo = signal<any>({
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus  erat, facilisis eu lobortis id, interdum nec libero. In feugiat consequat rhoncus. Class aptent taciti sociosqu ad litora torquent per  conubianostra",
-    img: "https://rtvnoticiasmorelos.mx/wp-content/uploads/2025/11/Copia-de-contenido-noticias-ag-51.jpg",
-    date: "22 de noviembre"
-  })
+  cardInfo = input.required<NewCard>();
+
 }
