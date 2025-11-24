@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<body class="bg-gray-50 h-full w-full pt-10">
+<body class="bg-gray-50 h-full w-full pt-12">
 
   <div class="px-10">
 
@@ -8,7 +8,18 @@
 
       <app-sidebar class="sticky top-0"></app-sidebar>
 
-      <div class="pl-10">
+      <div class="pl-10 w-full flex flex-col gap-5">
+        <app-search-bar></app-search-bar>
+        <app-municipio-banner></app-municipio-banner>
+
+        <div class="flex flex-col gap-5">
+          <app-place-card-alt></app-place-card-alt>
+          <app-place-card-alt></app-place-card-alt>
+          <app-place-card-alt></app-place-card-alt>
+          <app-place-card-alt></app-place-card-alt>
+          <app-place-card-alt></app-place-card-alt>
+        </div>
+
       </div>
 
     </div>

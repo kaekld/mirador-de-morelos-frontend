@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { LucideAngularModule, Search } from 'lucide-angular';
+import { MunicipiosSearch } from "./municipios-search/municipios-search";
+import { CategorySearch } from "./category-search/category-search";
 
 @Component({
   selector: 'app-sidebar',
-  imports: [LucideAngularModule],
+  imports: [MunicipiosSearch, CategorySearch],
   templateUrl: './sidebar.html',
   styles: ``,
 })
@@ -48,6 +49,34 @@ export class Sidebar {
     "Coatetelco"
   ];
 
-  Search = Search;
+  categories: string[] = [
+    "Comida",
+    "Alojamiento",
+    "Turismo",
+    "Salud",
+    "Compras",
+    "Escuela",
+    "Deporte",
+    "Finanzas",
+    "Transporte",
+    "Cultura",
+    "Fiesta",
+    "Naturaleza",
+    "Servicios",
+    "Gobierno",
+    "Religión",
+    "Talleres",
+    "Reparación",
+    "Mascotas",
+    "Eventos",
+    "Belleza",
+    "Tecnología",
+    "Hogar",
+    "Legal",
+    "Moda"
+  ];
+
+  defaultMunicipios: string[] = this.municipiosMorelos.slice(1,10)
+  defaultCategories: string[] = this.categories.slice(1,10)
 
 }
