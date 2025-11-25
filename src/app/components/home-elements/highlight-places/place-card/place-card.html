@@ -1,7 +1,7 @@
 <div class="flex gap-8 w-[calc(100vw-8rem)] snap-center shadow-lg">
 
   <div class="overflow-hidden">
-    <a class="cursor-pointer">
+    <a class="cursor-pointer" (click)="openModal()">
       <img [src]="placeInfo().img" class="w-md h-52 rounded-xl object-cover
                                           hover:scale-110 duration-150 delay-100">
     </a>
@@ -20,3 +20,58 @@
   </div>
 
 </div>
+
+<!-- Ventana emergente -->
+@if( activeModal ) {
+  <div class="fixed top-0 left-0 bg-gray-800/50 h-screen w-screen z-60 duration-150 flex justify-center items-center"
+       (click)="closeModal()"
+  >
+    <div class="h-10/12 w-3/4 flex flex-col semimd:flex-row bg-[#2B2A2A] rounded-2xl animate-fade-in-right"
+         (click)="$event.stopPropagation()"
+    >
+      <img [src]="placeInfo().img" class="w-full semimd:w-xl semimd:h-full object-cover rounded-2xl">
+
+      <!-- Contenido  -->
+      <div class="p-16 flex flex-col gap-6 overflow-y-scroll">
+
+        <!-- Titulo y descripcion  -->
+        <div class="flex flex-col gap-4">
+          <span class="text-white text-4xl font-bold">
+            {{ placeInfo().title }}
+          </span>
+          <p class="text-white font-normal">
+            {{ placeInfo().description }}
+          </p>
+        </div>
+
+        <!-- Medios de contacto -->
+        <div class="flex flex-col gap-6 pr-10 ">
+
+          <div class="flex gap-3 items-center pl-3 font-extralight">
+            <lucide-angular [img]="MapPin" class="stroke-2 stroke-white size-8"></lucide-angular>
+            <span class="text-white text-md">62744, Álvaro Obregón 116, Emiliano Zapata, 62740 Cuautla, Mor.</span>
+          </div>
+
+          <div class="flex gap-3 items-center pl-3 font-extralight">
+            <lucide-angular [img]="Phone" class="stroke-2 stroke-white size-8"></lucide-angular>
+            <span class="text-white text-md">+52-(735)-5522-222-222</span>
+          </div>
+
+          <div class="flex gap-3 items-center pl-3 font-extralight">
+            <lucide-angular [img]="Instagram" class="stroke-2 stroke-white size-8"></lucide-angular>
+            <span class="text-white text-md">@generic_place</span>
+          </div>
+
+          <div class="flex gap-3 items-center pl-3 font-extralight">
+            <lucide-angular [img]="Facebook" class="stroke-2 stroke-white size-8"></lucide-angular>
+            <span class="text-white text-md">@generic_place</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+}

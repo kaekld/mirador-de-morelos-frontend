@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @plugin "@midudev/tailwind-animations";
+
+@theme {
+  --breakpoint-semimd: 82.5rem;
+}
