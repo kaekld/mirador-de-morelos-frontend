@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 
 @Component({
   selector: 'app-post-card',
@@ -7,6 +7,9 @@ import { Component, signal } from '@angular/core';
   styles: ``,
 })
 export class PostCard {
+
+  cardWidth = input.required<string>();
+
   postInfo = signal<any>({
     title: "Lorem ipsum dolor sit amet.",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam eligendi minima nobis sequi eaque iste soluta possimus, amet laudantium illum rem, labore veniam officia! Ullam.",

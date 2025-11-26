@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlaceCardAlt } from './place-card-alt';
+import { Posts } from './posts';
 
-describe('PlaceCardAlt', () => {
-  let component: PlaceCardAlt;
-  let fixture: ComponentFixture<PlaceCardAlt>;
+describe('Posts', () => {
+  let component: Posts;
+  let fixture: ComponentFixture<Posts>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PlaceCardAlt]
+      imports: [Posts]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PlaceCardAlt);
+    fixture = TestBed.createComponent(Posts);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

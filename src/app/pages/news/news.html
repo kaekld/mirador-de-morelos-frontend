@@ -2,7 +2,7 @@
 
 <body class="bg-gray-50 h-full w-full pt-12">
 
-  <div class="px-10">
+  <div class="px-10 w-">
 
     <div class="bg-white py-10 px-5 flex items-start">
 
@@ -10,15 +10,11 @@
 
       <div class="pl-10 w-full flex flex-col gap-5">
         <app-search-bar></app-search-bar>
-        <app-municipio-banner></app-municipio-banner>
 
-        <div class="flex flex-col gap-5">
-          <app-place-card></app-place-card>
-          <app-place-card></app-place-card>
-          <app-place-card></app-place-card>
-          <app-place-card></app-place-card>
-          <app-place-card></app-place-card>
-          <app-place-card></app-place-card>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-y-5 gap-5 px-3 justify-center">
+          @for (new of newInfo(); track $index) {
+            <app-news-card [cardInfo]="new" [cardWidth]="'w-auto'"></app-news-card>
+          }
         </div>
 
       </div>

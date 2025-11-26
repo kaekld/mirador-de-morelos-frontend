@@ -10,5 +10,6 @@ import NewCard from '../../../../models/home-models/NewCard';
 export class NewsCard {
 
   cardInfo = input.required<NewCard>();
+  cardWidth = input.required<string>();
 
 }

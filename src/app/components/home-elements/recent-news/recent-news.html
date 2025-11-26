@@ -31,7 +31,7 @@
        class="py-8 flex gap-5 overflow-x-hidden"
   >
     @for(card of newInfo(); track $index){
-      <app-news-card [cardInfo]="card"></app-news-card>
+      <app-news-card [cardInfo]="card" [cardWidth]="'w-md'"></app-news-card>
     }
   </div>
 
