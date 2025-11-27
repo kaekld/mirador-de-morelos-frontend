@@ -4,7 +4,7 @@ import { SearchBar } from "../../components/search-bar/search-bar";
 import { Footer } from "../../components/footer/footer";
 import { Navbar } from "../../components/navbar/navbar";
 import { NewsCard } from "../../components/home-elements/recent-news/news-card/news-card";
-import NewCard from '../../models/home-models/NewCard';
+import NewCard from '../../models/NewCard';
 
 @Component({
   selector: 'app-news',

@@ -1,14 +1,15 @@
 @if( activeLogin() ) {
     <div class="fixed top-0 left-0 bg-gray-800/50 h-screen w-screen z-60 duration-150 flex justify-center items-center"
          (click)="emitDisable()"
+         [ngClass]="{'animate-fade-out-left':fadeOut}"
     >
       <div class="h-10/12 w-3/4 flex bg-white rounded-2xl animate-fade-in-right
                   overflow-y-auto md:overflow-y-hidden"
            (click)="$event.stopPropagation()"
       >
-  
-        <img src="https://visitmorelos.mx/source/RESTAURANTES/KOOKABURRA/KOOKABURRA.jpg" 
-             class="w-full semimd:w-xl semimd:h-full object-cover rounded-2xl hidden md:block">
+
+        <img src="https://oem.com.mx/elsoldepuebla/img/13951648/1705078366/BASE_LANDSCAPE/1200/image.webp"
+             class="w-full semimd:w-xl semimd:h-full object-cover object-left rounded-2xl hidden md:block">
 
 
         <!-- Contenido  -->
@@ -21,33 +22,37 @@
             <!-- Credenciales de usuario  -->
             <div class="flex flex-col gap-10 mt-5">
                 <fieldset class="flex gap-3 w-full flex-col">
-                    
+
                     <!-- Username  -->
                     <label for="username" class="font-bold">
                         Nombre de usuario
                     </label>
-                    
-                    <input type="text" id="username" name="username" 
-                           class="outline-0 border-2 border-stone-300 py-2 px-2 font-normal">
-                    
+
+                    <input type="text" id="username" name="username"
+                           class="focus:ring-2 focus:ring-stone-400 transition-all ease-out duration-150
+                                  outline-0 border-2 border-stone-300 py-2 px-2 font-normal">
+
                     <!-- Contraseña -->
                     <label for="username" class="font-bold">
                         Contraseña
                     </label>
-                    
-                    <input type="password" id="username" name="username" 
-                           class="focus:ring-2 focus:ring-stone-400 transition-all ease-out duration-150 
+
+                    <input type="password" id="username" name="username"
+                           class="focus:ring-2 focus:ring-stone-400 transition-all ease-out duration-150
                                   outline-0 border-2 border-stone-300 py-2 px-2 font-normal text-sm">
 
                 </fieldset>
-            
+
             <div class="mx-auto flex flex-col gap-5">
-                <button class="bg-red-900 text-xl font-bold text-white w-fit px-8 py-2 
-                                 rounded-xl cursor-pointer hover:bg-red-950 hover:scale-105 delay-100 
-                                 duration-200">
-                        Iniciar sesión
+                <button class="bg-red-900 text-xl font-bold text-white w-fit px-8 py-2
+                                 rounded-xl cursor-pointer hover:bg-red-950 delay-100
+                                 duration-200"
+                >
+                    Iniciar sesión
                 </button>
-                <a class="mx-auto font-bold text-red-950 cursor-pointer">
+                <a class="mx-auto font-bold text-red-950 cursor-pointer hover:scale-95 duration-75 delay-100"
+                   (click)="toggleModal()"
+                >
                     Crearse una cuenta
                 </a>
             </div>
@@ -55,8 +60,11 @@
             </div>
 
         </div>
-  
+
       </div>
-  
+
     </div>
-  }
+}
+
+
+<app-register-form-modal [activedRegister]="activedRegisterFormModal" (disableRegister)="toggleRegisterFormModal()"></app-register-form-modal>

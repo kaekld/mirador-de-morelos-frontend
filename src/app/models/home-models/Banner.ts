@@ -3,5 +3,6 @@ export default interface BannerContent {
   img: string,
   description: string,
   buttonText: string,
-  buttonClass: string
+  buttonClass: string,
+  path: string
 }

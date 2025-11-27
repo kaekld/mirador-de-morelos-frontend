@@ -11,12 +11,17 @@
     <a class="cursor-pointer" routerLink="/places"> Lugares </a>
     <a class="cursor-pointer" routerLink="/news"> Noticias </a>
     <a class="cursor-pointer" routerLink="/posts"> Publicaciones </a>
-    <a class="cursor-pointer"
-       (click)="openLoginModal()"
-    >
-      <lucide-angular [img]="User" class="size-8 stroke-2"></lucide-angular>
-    </a>
+
+    <div class="relative">
+      <lucide-angular [img]="User"
+                      class="size-8 stroke-2 cursor-pointer"
+                      (click)="toggleLoginDropdown()"
+      ></lucide-angular>
+      <app-user-dropdown-login [activedDropDown]="activedLoginDropDown"></app-user-dropdown-login>
+    </div>
+
+
   </nav>
 </div>
 
-<app-login-modal [activeLogin]="activeLoginModal" (disableLoginModal)="closeLoginModal($event)"></app-login-modal>
+

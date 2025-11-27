@@ -1,7 +1,7 @@
 import { Component, ElementRef, signal, viewChild } from '@angular/core';
 import { NewsCard } from "./news-card/news-card";
 import { LucideAngularModule, ChevronRight, ChevronLeft } from 'lucide-angular';
-import NewCard from '../../../models/home-models/NewCard';
+import NewCard from '../../../models/NewCard';
 
 @Component({
   selector: 'app-recent-news',

@@ -1,27 +1,30 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, User } from 'lucide-angular';
-import { LoginModal } from "../login-modal/login-modal";
+import { UserDropdownLogin } from "./user-dropdown-login/user-dropdown-login";
 
 @Component({
   selector: 'app-navbar',
-  imports: [LucideAngularModule, RouterLink, LoginModal],
+  imports: [LucideAngularModule, RouterLink, UserDropdownLogin],
   templateUrl: './navbar.html',
   styles: ``,
 })
 export class Navbar {
-  
-  activeLoginModal: boolean = false;
+
+  activedLoginDropDown : boolean = false;
 
   User = User;
 
-  openLoginModal(): void {
-    this.activeLoginModal = true;
+  toggleLoginDropdown(): void {
+    if(this.activedLoginDropDown){
+      this.activedLoginDropDown = false;
+      return
+    }
+    this.activedLoginDropDown = true;
   }
 
-  closeLoginModal( value: boolean ): void {
-    this.activeLoginModal = value;
-  }
+
+
 
 
 }

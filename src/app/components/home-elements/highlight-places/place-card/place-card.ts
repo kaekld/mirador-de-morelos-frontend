@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { LucideAngularModule, MapPin, Phone, Instagram, Facebook } from 'lucide-angular';
+import { PlaceModal } from "./place-modal/place-modal";
 
 @Component({
   selector: 'app-place-card',
-  imports: [LucideAngularModule],
+  imports: [PlaceModal],
   templateUrl: './place-card.html',
   styles: ``,
 })
@@ -16,19 +16,13 @@ export class PlaceCard {
     img: "https://visitmorelos.mx/source/RESTAURANTES/KOOKABURRA/KOOKABURRA.jpg"
   })
 
-  activeModal: boolean = false;
-  fadeOut: boolean = false;
+  acivedPlaceModal: boolean = false;
 
-  MapPin = MapPin;
-  Phone = Phone;
-  Instagram = Instagram;
-  Facebook = Facebook;
-
-  openModal(): void {
-    this.activeModal = true;
-    console.log(this.activeModal);
+  openPlaceModal(): void {
+    this.acivedPlaceModal = true;
   }
-  closeModal(): void {
-    this.activeModal = false;
+
+  closePlaceModal(): void {
+    this.acivedPlaceModal = false;
   }
 }
