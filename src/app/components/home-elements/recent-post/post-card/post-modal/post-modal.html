@@ -1,0 +1,36 @@
+@if( activedPostModal() ) {
+    <div class="fixed top-0 left-0 bg-gray-800/50 h-screen w-screen z-60 duration-150 flex 
+                justify-center items-center"
+         (click)="emitCLoseModal()"
+         [ngClass]="{'animate-fade-out-left':fadeOut}"
+    >
+      <div class="h-10/12 w-3/4 flex flex-col gap-5 bg-[#2B2A2A] rounded-2xl animate-fade-in-right
+                  overflow-y-auto px-15 py-10"
+           (click)="$event.stopPropagation()"
+      >
+
+        <!-- Usuario info -->
+        <div class="flex items-center gap-4">
+            <img src="https://static.vecteezy.com/system/resources/previews/013/360/247/non_2x/default-avatar-photo-icon-social-media-profile-sign-symbol-vector.jpg"
+            class="size-10 object-cover rounded-full"
+            >
+            <span class="text-white text-md">username · mar 4, 2025</span>
+        </div>
+        
+        <h2 class="text-4xl text-white font-extrabold">
+            {{'Lorem ipsum dolor sit amet.'.toUpperCase()}}
+        </h2>
+            
+        <!-- Img de post -->
+        <img src="https://masdemorelos.masdemx.com/wp-content/uploads/2018/04/Manueltajintlaya-1024x678.jpg" 
+             class="object-cover h-122 w-full rounded-md mx-auto">
+
+        <!-- Descripcion del post -->
+        <p class="text-white text-xl ">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, libero. Accusamus veniam quis excepturi? Voluptatibus labore beatae rem quidem, sequi maxime illo pariatur, excepturi id laborum eos natus accusamus corrupti! Quae natus voluptate tenetur cumque magnam unde quos optio quas error sed vitae, id iure obcaecati pariatur temporibus in aperiam.
+        </p>
+  
+      </div>
+    </div>
+}
+  

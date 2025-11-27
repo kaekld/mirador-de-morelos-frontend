@@ -1,6 +1,9 @@
-<div class="relative cursor-pointer overflow-hidden group rounded-xl" [class]="cardWidth()">
-  <img [src]="postInfo().img"
-       class="object-cover h-96 rounded-xl group-hover:scale-105 duration-150 delay-100 w-full">
+<div class="relative cursor-pointer overflow-hidden group rounded-xl animate-fade-in-left" 
+     [class]="cardWidth()"
+     (click)="togglePostModal()"
+>
+     <img [src]="postInfo().img"
+     class="object-cover h-96 rounded-xl group-hover:scale-105 duration-150 delay-100 w-full">
 
 
 
@@ -13,3 +16,5 @@
     <p class="text-sm font-light text-white">{{ postInfo().description }}</p>
   </div>
 </div>
+
+<app-post-modal [activedPostModal]="activedPostModal" (closePostModal)="togglePostModal()"></app-post-modal>

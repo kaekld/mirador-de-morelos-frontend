@@ -1,14 +1,20 @@
 import { Component, input, signal } from '@angular/core';
+import { PostModal } from "./post-modal/post-modal";
 
 @Component({
   selector: 'app-post-card',
-  imports: [],
+  imports: [PostModal],
   templateUrl: './post-card.html',
   styles: ``,
 })
 export class PostCard {
 
   cardWidth = input.required<string>();
+  activedPostModal: boolean = false;
+
+  togglePostModal(): void {
+    this.activedPostModal = !this.activedPostModal;
+  }
 
   postInfo = signal<any>({
     title: "Lorem ipsum dolor sit amet.",
