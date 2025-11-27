@@ -20,7 +20,7 @@ export class Carousel {
 
   banners: BannerContent[] =([
     {
-      title: "ENCUENTRA LOS MEJORES SITIOS DE MORELOS",
+      title: "ENCUENTRA LOS MEJORES LUGARES",
       img: "https://masdemorelos.masdemx.com/wp-content/uploads/2018/04/Manueltajintlaya-1024x678.jpg",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus  erat, facilisis eu lobortis id, interdum nec libero. In feugiat consequat rhoncus. Class aptent taciti sociosqu ad litora torquent per  conubia nostra, per inceptos himenaeos. Aenean sit amet lacinia eros.",
       buttonText: "Ver Lugares",
