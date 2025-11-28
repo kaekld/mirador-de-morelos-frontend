@@ -1,10 +1,9 @@
-<div class="flex gap-8 3snap-center shadow-lg animate-fade-in-left">
+<div class="flex gap-8 snap-center shadow-lg animate-fade-in-left cursor-pointer group"
+     (click)="openPlaceModal()">
 
   <div class="overflow-hidden">
-    <a class="cursor-pointer" (click)="openPlaceModal()">
       <img [src]="placeInfo().img" class="w-md h-52 rounded-xl object-cover
-                                          hover:scale-110 duration-150 delay-100">
-    </a>
+                                          group-hover:scale-110 duration-150 delay-100">
   </div>
 
   <div class="flex flex-col flex-1 gap-3 p-5">
