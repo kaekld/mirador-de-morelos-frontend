@@ -16,11 +16,7 @@ export class Navbar {
   User = User;
 
   toggleLoginDropdown(): void {
-    if(this.activedLoginDropDown){
-      this.activedLoginDropDown = false;
-      return
-    }
-    this.activedLoginDropDown = true;
+    this.activedLoginDropDown = !this.activedLoginDropDown;
   }
 
 

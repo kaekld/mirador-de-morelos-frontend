@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { LoginModal } from "../../login-modal/login-modal";
 
 @Component({
@@ -10,15 +10,15 @@ import { LoginModal } from "../../login-modal/login-modal";
 export class UserDropdownLogin {
 
   activedDropDown = input.required<boolean>();
-
+  closeDropdown = output<void>();
   activedLoginModal: boolean = false;
 
   toggleLoginModal(): void {
-    if(this.activedLoginModal){
-      this.activedLoginModal = false;
-      return
-    }
-    this.activedLoginModal = true;
+    this.activedLoginModal = !this.activedLoginModal;
+  }
+
+  emitCloseDropdown(): void {
+    this.closeDropdown.emit()
   }
 
 }

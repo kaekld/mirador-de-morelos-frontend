@@ -17,7 +17,7 @@
                       class="size-8 stroke-2 cursor-pointer"
                       (click)="toggleLoginDropdown()"
       ></lucide-angular>
-      <app-user-dropdown-login [activedDropDown]="activedLoginDropDown"></app-user-dropdown-login>
+      <app-user-dropdown-login [activedDropDown]="activedLoginDropDown" (closeDropdown)="toggleLoginDropdown()"></app-user-dropdown-login>
     </div>
 
 

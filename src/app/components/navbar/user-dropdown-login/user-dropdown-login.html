@@ -1,5 +1,10 @@
 @if(activedDropDown()){
-  <div class="bg-[#f3eae8] w-50 h-auto absolute z-60 top-full -right-5 rounded-xl shadow-xl
+  <div class="fixed top-0 left-0 w-screen h-screen"
+       (click)="emitCloseDropdown()"
+  >
+
+  </div>
+  <div class="bg-[#f3eae8] w-50 h-auto absolute z-60 top-full -right-5 shadow-xl
               flex flex-col p-4"
   >
 
@@ -9,6 +14,7 @@
       >
       <span class="text-sm block hover:text-stone-700 duration-150 delay-75"
             (click)="toggleLoginModal()"
+            (click)="emitCloseDropdown()"
       >
         Iniciar sesión/Registrarse
       </span>
@@ -18,4 +24,6 @@
   </div>
 }
 
-<app-login-modal [activeLogin]="activedLoginModal" (disableLoginModal)="toggleLoginModal()" ></app-login-modal>
+<app-login-modal [activeLogin]="activedLoginModal"
+                 (disableLoginModal)="toggleLoginModal()"
+></app-login-modal>
