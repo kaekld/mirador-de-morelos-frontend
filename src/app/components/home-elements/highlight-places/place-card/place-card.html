@@ -2,19 +2,23 @@
      (click)="openPlaceModal()">
 
   <div class="overflow-hidden">
-      <img [src]="placeInfo().img" class="w-md h-52 rounded-xl object-cover
+      <img [src]="placeInfo().imagen" class="w-md h-52 rounded-xl object-cover
                                           group-hover:scale-110 duration-150 delay-100">
   </div>
 
   <div class="flex flex-col flex-1 gap-3 p-5">
     <span class="text-3xl font-bold line-clamp-1">
-      {{placeInfo().title}}
+      {{placeInfo().nombre}}
     </span>
-    <span class="font-bold text-xl">
-      {{ placeInfo().category }}
-    </span>
+
+    <div class="font-bold text-md flex gap-4">
+      @for(categorie of placeInfo().categories; track $index){
+        <span class="bg-gray-300 px-2 py-1 rounded-sm">{{categorie}}</span>
+      }
+    </div>
+
     <p class="text-md line-clamp-3">
-      {{ placeInfo().description }}
+      {{ placeInfo().descripcion }}
     </p>
   </div>
 

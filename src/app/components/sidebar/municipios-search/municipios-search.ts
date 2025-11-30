@@ -1,5 +1,5 @@
 import { LucideAngularModule, Search } from 'lucide-angular';
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-municipios-search',
@@ -10,10 +10,11 @@ import { Component, input } from '@angular/core';
 export class MunicipiosSearch {
 
   municipios = input.required<string[]>()
+  municipioSelected = output<string>()
   Search = Search;
 
   emitMunicipio(municipio: string): void {
-    console.log(municipio)
+    this.municipioSelected.emit(municipio);
   }
 
 }

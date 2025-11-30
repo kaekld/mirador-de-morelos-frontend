@@ -1,6 +1,7 @@
-import { Component, ElementRef, viewChild } from '@angular/core';
+import { Component, ElementRef, inject, viewChild } from '@angular/core';
 import { PostCard } from "./post-card/post-card";
 import { LucideAngularModule, ChevronLeft, ChevronRight } from 'lucide-angular';
+import { PlacesService } from '../../../services/places-service';
 
 @Component({
   selector: 'app-recent-post',
@@ -11,6 +12,7 @@ import { LucideAngularModule, ChevronLeft, ChevronRight } from 'lucide-angular';
 
 export class RecentPost {
   cardsContainer = viewChild.required<ElementRef>('cardsContainer')
+  placesService = inject( PlacesService );
 
   ChevronLeft = ChevronLeft;
   ChevronRight = ChevronRight;

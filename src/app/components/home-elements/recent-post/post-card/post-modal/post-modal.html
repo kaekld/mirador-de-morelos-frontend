@@ -1,5 +1,5 @@
 @if( activedPostModal() ) {
-    <div class="fixed top-0 left-0 bg-gray-800/50 h-screen w-screen z-60 duration-150 flex 
+    <div class="fixed top-0 left-0 bg-gray-800/50 h-screen w-screen z-60 duration-150 flex
                 justify-center items-center"
          (click)="emitCLoseModal()"
          [ngClass]="{'animate-fade-out-left':fadeOut}"
@@ -14,23 +14,22 @@
             <img src="https://static.vecteezy.com/system/resources/previews/013/360/247/non_2x/default-avatar-photo-icon-social-media-profile-sign-symbol-vector.jpg"
             class="size-10 object-cover rounded-full"
             >
-            <span class="text-white text-md">username · mar 4, 2025</span>
+            <span class="text-white text-md">{{placeName()}} · {{postInfo().fechaCreacion | date:'dd/MM/yyyy' }}</span>
         </div>
-        
+
         <h2 class="text-4xl text-white font-extrabold">
-            {{'Lorem ipsum dolor sit amet.'.toUpperCase()}}
+            {{postInfo().titulo.toUpperCase()}}
         </h2>
-            
+
         <!-- Img de post -->
-        <img src="https://masdemorelos.masdemx.com/wp-content/uploads/2018/04/Manueltajintlaya-1024x678.jpg" 
+        <img [src]="postInfo().imagen"
              class="object-cover h-122 w-full rounded-md mx-auto">
 
         <!-- Descripcion del post -->
         <p class="text-white text-xl ">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, libero. Accusamus veniam quis excepturi? Voluptatibus labore beatae rem quidem, sequi maxime illo pariatur, excepturi id laborum eos natus accusamus corrupti! Quae natus voluptate tenetur cumque magnam unde quos optio quas error sed vitae, id iure obcaecati pariatur temporibus in aperiam.
+            {{ postInfo().contenido }}
         </p>
-  
+
       </div>
     </div>
 }
-  

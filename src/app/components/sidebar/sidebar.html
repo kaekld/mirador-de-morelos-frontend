@@ -1,6 +1,11 @@
 <div class="w-3xs flex flex-col gap-5">
 
-  <app-municipios-search [municipios]="defaultMunicipios"></app-municipios-search>
-  <app-category-search [categories]="defaultCategories"></app-category-search>
+  <app-municipios-search [municipios]="municipiosMorelos"
+                         (municipioSelected)="emitMunicipio($event)"
+  ></app-municipios-search>
+
+  <app-category-search [categories]="categories()"
+                       (categorieSelected)="emitCategorie($event)"
+  ></app-category-search>
 
 </div>

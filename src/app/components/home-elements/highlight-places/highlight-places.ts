@@ -1,6 +1,8 @@
-import { Component, ElementRef, viewChild } from '@angular/core';
+import { Component, computed, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { PlaceCard } from "./place-card/place-card";
 import { LucideAngularModule, ChevronRight, ChevronLeft, Leaf } from 'lucide-angular';
+import { PlacesService } from '../../../services/places-service';
+import { Place } from '../../../interfaces/place-interface';
 
 @Component({
   selector: 'app-highlight-places',
@@ -9,24 +11,20 @@ import { LucideAngularModule, ChevronRight, ChevronLeft, Leaf } from 'lucide-ang
   styles: ``,
 })
 export class HighlightPlaces {
+  placesService = inject( PlacesService );
 
   cardsContainer = viewChild.required<ElementRef>('cardsContainer')
 
   ChevronLeft = ChevronLeft;
   ChevronRight = ChevronRight;
 
-  scrollLeft(): void {
-    this.cardsContainer().nativeElement.scrollBy({
-      left: -this.cardsContainer().nativeElement.scrollWidth,
-      behavior: 'smooth'
-    });
+  ngOnInit(): void {
+    this.placesService.loadPlacesList('categoria/comida');
   }
-  scrollRight(): void {
 
-    this.cardsContainer().nativeElement.scrollBy({
-      left: this.cardsContainer().nativeElement.scrollWidth,
-      behavior: 'smooth'
-    });
-  }
+  highLightPlaces = computed<Place[]>(() => {
+    const fullList = this.placesService.placesList();
+    return fullList.slice(1, 4);
+  });
 
 }

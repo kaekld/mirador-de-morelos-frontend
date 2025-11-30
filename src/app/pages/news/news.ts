@@ -1,10 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Sidebar } from "../../components/sidebar/sidebar";
 import { SearchBar } from "../../components/search-bar/search-bar";
 import { Footer } from "../../components/footer/footer";
 import { Navbar } from "../../components/navbar/navbar";
 import { NewsCard } from "../../components/home-elements/recent-news/news-card/news-card";
-import NewCard from '../../models/NewCard';
+import { NewsService } from '../../services/news-service';
 
 @Component({
   selector: 'app-news',
@@ -12,51 +12,21 @@ import NewCard from '../../models/NewCard';
   templateUrl: './news.html',
   styles: ``,
 })
-export default class News {
+export default class News implements OnInit {
 
-  newInfo = signal<NewCard[]>([]);
+  categories : string[] = [
+    "Sociedad", "Seguridad", "Salud", "Ciencia", "Tecnología"
+  ]
 
-  constructor(){
-    this.newInfo.set (
-      [
-        {
-          title: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus  erat, facilisis eu lobortis id, interdum nec libero. In feugiat consequat rhoncus. Class aptent taciti sociosqu ad litora torquent per  conubianostra",
-          img: "https://rtvnoticiasmorelos.mx/wp-content/uploads/2025/11/Copia-de-contenido-noticias-ag-51.jpg",
-          date: "22 de noviembre"
-        },
-        {
-          title: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus  erat, facilisis eu lobortis id, interdum nec libero. In feugiat consequat rhoncus. Class aptent taciti sociosqu ad litora torquent per  conubianostra",
-          img: "https://www.diariodemorelos.com/noticias/sites/default/files/styles/image_1170x660/public/field/image/checadores_0.jpg?itok=t39xKKST",
-          date: "22 de noviembre"
-        },
-        {
-          title: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus  erat, facilisis eu lobortis id, interdum nec libero. In feugiat consequat rhoncus. Class aptent taciti sociosqu ad litora torquent per  conubianostra",
-          img: "https://rtvnoticiasmorelos.mx/wp-content/uploads/2025/11/Copia-de-contenido-noticias-ag-71.jpg",
-          date: "22 de noviembre"
-        },
-        {
-          title: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus  erat, facilisis eu lobortis id, interdum nec libero. In feugiat consequat rhoncus. Class aptent taciti sociosqu ad litora torquent per  conubianostra",
-          img: "https://morelos.quadratin.com.mx/www/wp-content/uploads/2025/11/5e048960-9e24-47b6-a2a8-095b711c6732-316x200.jpeg",
-          date: "22 de noviembre"
-        },
-        {
-          title: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus  erat, facilisis eu lobortis id, interdum nec libero. In feugiat consequat rhoncus. Class aptent taciti sociosqu ad litora torquent per  conubianostra",
-          img: "https://ineditonoticias.com/storage/posts/aRU1PE4kWCnEQEH3hEpoYQrwlUYAhP1zZevgS7Va.webp",
-          date: "22 de noviembre"
-        },
-        {
-          title: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus  erat, facilisis eu lobortis id, interdum nec libero. In feugiat consequat rhoncus. Class aptent taciti sociosqu ad litora torquent per  conubianostra",
-          img: "https://morelos.quadratin.com.mx/www/wp-content/uploads/2025/11/IMG_6579-316x194.webp",
-          date: "22 de noviembre"
-        }
-      ]
-    )
+  newsService = inject( NewsService )
+
+  ngOnInit(){
+    this.newsService.loadNewsList('now');
   }
+
+  changeNewsList(filter: string): void {
+    this.newsService.loadNewsList(filter);
+  }
+
 
 }

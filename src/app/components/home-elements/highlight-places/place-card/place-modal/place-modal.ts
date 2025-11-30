@@ -1,6 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, input, output } from '@angular/core';
-import { LucideAngularModule, MapPin, Phone, Instagram, Facebook } from 'lucide-angular';
+import { LucideAngularModule, MapPin, Phone, Instagram, Facebook, Calendar, ChevronDown, House } from 'lucide-angular';
+import { Place } from '../../../../../interfaces/place-interface';
 
 @Component({
   selector: 'app-place-modal',
@@ -10,15 +11,19 @@ import { LucideAngularModule, MapPin, Phone, Instagram, Facebook } from 'lucide-
 })
 export class PlaceModal {
 
-  placeInfo = input.required<any>();
+  placeInfo = input.required<Place>();
   activedModal = input.required<boolean>();
   closeModal = output<void>();
   fadeOut: boolean = false;
+  showSchedule: boolean = false;
 
   MapPin = MapPin;
   Phone = Phone;
   Instagram = Instagram;
   Facebook = Facebook;
+  Calendar = Calendar;
+  ChevronDown = ChevronDown;
+  House = House;
 
   emitCloseModal(): void {
     this.fadeOut = true;
@@ -27,6 +32,10 @@ export class PlaceModal {
       this.fadeOut = false;
       this.closeModal.emit();
     },500)
+  }
+
+  toggleSchedule(): void {
+    this.showSchedule = !this.showSchedule;
   }
 
 }

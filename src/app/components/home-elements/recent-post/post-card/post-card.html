@@ -1,8 +1,8 @@
-<div class="relative cursor-pointer overflow-hidden group rounded-xl animate-fade-in-left" 
+<div class="relative cursor-pointer overflow-hidden group rounded-xl animate-fade-in-left"
      [class]="cardWidth()"
      (click)="togglePostModal()"
 >
-     <img [src]="postInfo().img"
+     <img [src]="postInfo().imagen"
      class="object-cover h-96 rounded-xl group-hover:scale-105 duration-150 delay-100 w-full">
 
 
@@ -12,9 +12,13 @@
   </div>
 
   <div class="absolute top-0 h-96 px-4 py-8 flex flex-col gap-3 justify-end">
-    <span class="text-3xl font-bold text-white">{{ postInfo().title }}</span>
-    <p class="text-sm font-light text-white">{{ postInfo().description }}</p>
+    <span class="text-3xl font-bold text-white">{{ postInfo().titulo }}</span>
+    <p class="text-sm font-light text-white">{{ postInfo().contenido }}</p>
   </div>
 </div>
 
-<app-post-modal [activedPostModal]="activedPostModal" (closePostModal)="togglePostModal()"></app-post-modal>
+<app-post-modal [activedPostModal]="activedPostModal"
+                (closePostModal)="togglePostModal()"
+                [postInfo]="postInfo()"
+                [placeName]="placeName()"
+></app-post-modal>

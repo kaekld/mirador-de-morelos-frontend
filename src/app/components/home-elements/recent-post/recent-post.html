@@ -28,13 +28,14 @@
   <div #cardsContainer
        class="py-8 flex gap-5 overflow-x-hidden"
   >
-          <app-post-card [cardWidth]="'w-sm'"></app-post-card>
-          <app-post-card [cardWidth]="'w-sm'"></app-post-card>
-          <app-post-card [cardWidth]="'w-sm'"></app-post-card>
-          <app-post-card [cardWidth]="'w-sm'"></app-post-card>
-          <app-post-card [cardWidth]="'w-sm'"></app-post-card>
-          <app-post-card [cardWidth]="'w-sm'"></app-post-card>
-          <app-post-card [cardWidth]="'w-sm'"></app-post-card>
+         @for (place of placesService.placesList(); track $index) {
+
+            @for (publicacion of place.publicaciones; track $index) {
+              <app-post-card [cardWidth]="'w-auto'"
+                             [postInfo]="publicacion"
+                             [placeName]="place.nombre"></app-post-card>
+            }
+          }
   </div>
 
 </section>

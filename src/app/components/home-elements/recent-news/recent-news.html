@@ -30,8 +30,10 @@
   <div #cardsContainer
        class="py-8 flex gap-5 overflow-x-hidden"
   >
-    @for(card of newInfo(); track $index){
-      <app-news-card [cardInfo]="card" [cardWidth]="'w-md'"></app-news-card>
+    @for (new of newsService.newsList(); track $index) {
+      <app-news-card [cardInfo]="new"
+                     [cardWidth]="'w-md'"
+      ></app-news-card>
     }
   </div>
 

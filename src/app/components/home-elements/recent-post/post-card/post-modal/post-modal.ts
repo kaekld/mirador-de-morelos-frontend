@@ -1,17 +1,22 @@
-import { NgClass } from '@angular/common';
+import { NgClass, DatePipe } from '@angular/common';
 import { Component, input, output } from '@angular/core';
+import { Publicaciones } from '../../../../../interfaces/mm-interfaces';
 
 @Component({
   selector: 'app-post-modal',
-  imports: [NgClass],
+  imports: [NgClass, DatePipe],
   templateUrl: './post-modal.html',
   styles: ``,
 })
 export class PostModal {
 
+  placeName = input.required<string>()
+  postInfo = input.required<Publicaciones>();
   activedPostModal = input.required<boolean>();
   closePostModal = output<void>();
   fadeOut: boolean = false;
+
+
 
   emitCLoseModal(): void {
     this.fadeOut = true;

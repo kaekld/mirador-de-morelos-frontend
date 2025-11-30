@@ -6,19 +6,19 @@
 
     <div class="bg-white py-10 px-5 flex items-start">
 
-      <app-sidebar class="sticky top-0 hidden md:block"></app-sidebar>
+      <app-sidebar [categories]="categories"
+                   class="sticky top-0 hidden md:block"
+                   (selection)="changePlaceList($event)"
+      ></app-sidebar>
 
       <div class="pl-10 w-full flex flex-col gap-5">
         <app-search-bar></app-search-bar>
         <app-municipio-banner class="animate-fade-in-left"></app-municipio-banner>
 
         <div class="flex flex-col gap-5">
-          <app-place-card></app-place-card>
-          <app-place-card></app-place-card>
-          <app-place-card></app-place-card>
-          <app-place-card></app-place-card>
-          <app-place-card></app-place-card>
-          <app-place-card></app-place-card>
+          @for(card of placesService.placesList(); track $index){
+            <app-place-card [placeInfo]="card"></app-place-card>
+          }
         </div>
 
       </div>
@@ -28,6 +28,12 @@
   </div>
 
 </body>
+
+@for (place of placesService.placesList(); track $index) {
+  @for (publicacion of place.publicaciones; track $index) {
+    {{ publicacion.titulo }}
+  }
+}
 
 <footer>
   <app-footer></app-footer>

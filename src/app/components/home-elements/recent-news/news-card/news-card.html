@@ -1,14 +1,14 @@
 <div [class]="cardWidth()">
-  <div class="flex flex-col gap-3 relative snap-center">
+  <div class="flex flex-col gap-3 relative snap-center animate-fade-in-left">
 
     <span class="absolute top-0 left-0 bg-gray-800/70 p-2 ml-4 mt-3
-                 text-xl text-white font-bold rounded-md z-10">
-      {{ cardInfo().date }}
+                 text-sm text-white font-bold rounded-md z-10">
+      {{ cardInfo().fecha | date:'dd/MM/yyyy' }}
     </span>
 
     <div class="overflow-hidden">
       <a class="cursor-pointer">
-        <img [src]="cardInfo().img"
+        <img [src]="cardInfo().imagen"
              class="h-52 w-full object-cover hover:scale-105
                     duration-150 delay-100">
       </a>
@@ -16,11 +16,11 @@
 
     <span class="text-2xl font-bold cursor-pointer
                hover:text-gray-500 duration-200">
-      {{ cardInfo().title }}
+      {{ cardInfo().titulo }}
     </span>
 
     <p class="text-md font-light">
-      {{ cardInfo().description }}
+      {{ cardInfo().contenido }}
     </p>
   </div>
 

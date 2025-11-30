@@ -5,24 +5,6 @@
       <h2 class="text-4xl font-bold">Lugares más visitados</h2>
     </div>
 
-    <div class="flex gap-8">
-
-      <button class="cursor-pointer bg-gray-300/50 w-fit h-fit rounded-full active:scale-110
-                   active:bg-gray-400/50 duration-400"
-              (click)="scrollLeft()"
-      >
-          <lucide-angular [img]="ChevronLeft" class="size-8"></lucide-angular>
-      </button>
-
-      <button class="cursor-pointer bg-gray-300/50 w-fit h-fit rounded-full active:scale-110
-                   active:bg-gray-400/50 duration-400"
-              (click)="scrollRight()"
-      >
-          <lucide-angular [img]="ChevronRight" class="size-8"></lucide-angular>
-      </button>
-
-    </div>
-
   </div>
 
   <!-- Contenedor de cards  -->
@@ -30,14 +12,11 @@
         class="py-8 flex flex-row gap-5 flex-nowrap overflow-x-hidden"
   >
     <div class="flex flex-col gap-5">
-      <app-place-card class="w-[calc(100vw-8rem)]"></app-place-card>
-      <app-place-card class="w-[calc(100vw-8rem)]"></app-place-card>
-      <app-place-card class="w-[calc(100vw-8rem)]"></app-place-card>
-    </div>
-    <div class="flex flex-col gap-5">
-      <app-place-card class="w-[calc(100vw-8rem)]"></app-place-card>
-      <app-place-card class="w-[calc(100vw-8rem)]"></app-place-card>
-      <app-place-card class="w-[calc(100vw-8rem)]"></app-place-card>
+      @for (place of highLightPlaces(); track $index) {
+        <app-place-card class="w-[calc(100vw-8rem)]"
+                        [placeInfo]="place"
+        ></app-place-card>
+      }
     </div>
   </div>
 

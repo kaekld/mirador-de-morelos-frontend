@@ -6,13 +6,16 @@
 
     <div class="bg-white py-10 px-5 flex items-start">
 
-      <app-sidebar class="sticky top-0"></app-sidebar>
+      <app-sidebar [categories]="categories"
+                   class="sticky top-0 hidden md:block"
+                   (selection)="changeNewsList($event)"
+      ></app-sidebar>
 
       <div class="pl-10 w-full flex flex-col gap-5">
         <app-search-bar></app-search-bar>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-y-5 gap-5 px-3 justify-center animate-fade-in-left">
-          @for (new of newInfo(); track $index) {
+          @for (new of newsService.newsList(); track $index) {
             <app-news-card [cardInfo]="new" [cardWidth]="'w-auto'"></app-news-card>
           }
         </div>
