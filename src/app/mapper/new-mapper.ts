@@ -1,11 +1,13 @@
 import { New } from "../interfaces/new-interface";
-import { Municipio, NewResponse } from "../interfaces/new-response";
+import { Municipio, NewResponse, Usuario } from "../interfaces/new-response";
 
 export class NewMapper {
 
   static mapNewItemToNew(item: NewResponse): New{
     return{
+      id: item.id,
       titulo: item.titulo,
+      autor: item.creditoAutor,
       contenido: item.contenido,
       imagen: item.imagenDestacada,
       municipio: item.municipio.nombre,

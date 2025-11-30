@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserDropdownLogin } from './user-dropdown-login';
+import { LoginSucessfulModal } from './login-sucessful-modal';
 
-describe('UserDropdownLogin', () => {
-  let component: UserDropdownLogin;
-  let fixture: ComponentFixture<UserDropdownLogin>;
+describe('LoginSucessfulModal', () => {
+  let component: LoginSucessfulModal;
+  let fixture: ComponentFixture<LoginSucessfulModal>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserDropdownLogin]
+      imports: [LoginSucessfulModal]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UserDropdownLogin);
+    fixture = TestBed.createComponent(LoginSucessfulModal);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

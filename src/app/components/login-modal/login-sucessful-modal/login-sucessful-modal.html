@@ -1,0 +1,30 @@
+@if( showSucessfulModal() ) {
+    <div class="fixed top-0 left-0 bg-gray-800/50 h-screen w-screen z-60 duration-150 flex justify-center items-center"
+    >
+      <div class="h-fit flex bg-white rounded-2xl animate-fade-in-right
+                  overflow-y-auto relative"
+           (click)="$event.stopPropagation()"
+      >
+
+        <!-- Contenido  -->
+        <div class="px-20 w-full h-full flex flex-col gap-6 justify-center p-5">
+
+          <span class="font-bold text-2xl">
+            Inicio de sesión exitoso
+          </span>
+
+          <button class="font-bold bg-green-800 text-white py-2 rounded-md
+                         cursor-pointer hover:bg-green-900 duration-200"
+                  (click)="emitCloseSucessfulModal()"
+          >
+            Ok
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+}
+
+

@@ -11,19 +11,26 @@ import { NewMapper } from '../mapper/new-mapper';
 export class NewsService {
 
   private http = inject(HttpClient);
+
   newsList = signal<New[]>([])
+  newEntry = signal<New | null>(null)
 
   loadNewsList(filter: string) {
-
     this.http.get<NewResponse[]>(`${ environment.apiUrl }/noticia/${ filter }`).subscribe(
       (resp) => {
-
-        console.log(`${ environment.apiUrl }/noticia/${ filter }`)
         const news = NewMapper.mapNewsItemsToArray(resp);
         this.newsList.set(news)
-
       }
     )
-
   }
+
+  loadNewEntry(id: string) {
+    this.http.get<NewResponse>(`${ environment.apiUrl }/noticia/id/${ id }`).subscribe(
+      (resp) => {
+        const newEntry = NewMapper.mapNewItemToNew(resp)
+        this.newEntry.set(newEntry)
+      }
+    )
+  }
+
 }

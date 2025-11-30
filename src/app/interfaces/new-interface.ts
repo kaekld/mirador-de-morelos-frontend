@@ -1,7 +1,7 @@
-import { Municipio } from "./new-response";
-
 export interface New {
+  id:             number;
   titulo:         string;
+  autor:          string;
   contenido:      string;
   imagen:         string;
   municipio:      string;

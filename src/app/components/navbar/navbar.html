@@ -15,13 +15,14 @@
     <div class="relative">
       <lucide-angular [img]="User"
                       class="size-8 stroke-2 cursor-pointer"
-                      (click)="toggleLoginDropdown()"
+                      (click)="toggleDashboard()"
       ></lucide-angular>
-      <app-user-dropdown-login [activedDropDown]="activedLoginDropDown" (closeDropdown)="toggleLoginDropdown()"></app-user-dropdown-login>
     </div>
 
 
   </nav>
 </div>
+
+<app-user-dashboard [activedDashboard]="activedDashboard" (closeDashboard)="toggleDashboard()"></app-user-dashboard>
 
 
