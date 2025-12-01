@@ -1,0 +1,24 @@
+<div class="flex flex-col gap-2 w-3xs bg-gray-200 h-fit px-5 py-5 rounded-md shadow-md relative">
+  <div class="mx-auto">
+    <img
+      [src]="authService.userData()?.imagenPerfil"
+      class="size-25 rounded-full border-2"
+    />
+  </div>
+
+  <div class="flex flex-col">
+    <span class="text-2xl font-bold">
+      {{authService.userData()?.nombre}} {{authService.userData()?.apellidoP}} {{authService.userData()?.apellidoM}}
+    </span>
+
+    <span>
+      {{authService.userData()?.email}}
+    </span>
+  </div>
+
+  <button class="cursor-pointer absolute top-0 right-0 p-5">
+    <lucide-angular [img]="Pencil"
+                    class="size-7 hover:scale-110 duration-150 delay-100 "
+    ></lucide-angular>
+  </button>
+</div>

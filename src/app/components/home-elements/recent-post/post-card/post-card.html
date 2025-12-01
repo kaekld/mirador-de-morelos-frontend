@@ -2,7 +2,7 @@
      [class]="cardWidth()"
      (click)="togglePostModal()"
 >
-     <img [src]="postInfo().imagen"
+     <img [src]="`${ imgUrl }${ postInfo().imagen }`"
      class="object-cover h-96 rounded-xl group-hover:scale-105 duration-150 delay-100 w-full">
 
 

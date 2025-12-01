@@ -2,6 +2,7 @@ import { NgClass } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 import { LucideAngularModule, MapPin, Phone, Instagram, Facebook, Calendar, ChevronDown, House } from 'lucide-angular';
 import { Place } from '../../../../../interfaces/place-interface';
+import { environment } from '../../../../../../environments/environment';
 
 @Component({
   selector: 'app-place-modal',
@@ -11,7 +12,9 @@ import { Place } from '../../../../../interfaces/place-interface';
 })
 export class PlaceModal {
 
-  placeInfo = input.required<Place>();
+  imgUrl: string = `${ environment.apiUrl }/negocio/image/`
+
+  placeInfo = input.required<Place | null>();
   activedModal = input.required<boolean>();
   closeModal = output<void>();
   fadeOut: boolean = false;

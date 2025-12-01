@@ -11,9 +11,6 @@
 
         <!-- Usuario info -->
         <div class="flex items-center gap-4">
-            <img src="https://static.vecteezy.com/system/resources/previews/013/360/247/non_2x/default-avatar-photo-icon-social-media-profile-sign-symbol-vector.jpg"
-            class="size-10 object-cover rounded-full"
-            >
             <span class="text-white text-md">{{placeName()}} · {{postInfo().fechaCreacion | date:'dd/MM/yyyy' }}</span>
         </div>
 
@@ -22,7 +19,7 @@
         </h2>
 
         <!-- Img de post -->
-        <img [src]="postInfo().imagen"
+       <img [src]="`${ imgUrl }${ postInfo().imagen }`"
              class="object-cover h-122 w-full rounded-md mx-auto">
 
         <!-- Descripcion del post -->

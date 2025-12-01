@@ -1,0 +1,20 @@
+<div class="flex flex-col gap-2 w-3xs bg-gray-200 h-fit px-5 py-5 rounded-md shadow-md relative">
+
+  <span class="text-2xl font-bold">
+    NEGOCIOS PROPIOS
+  </span>
+
+  <div class="flex w-full flex-col gap-2 pl-2">
+    @for(place of userPlacesService.userPlacesList() ; track $index ){
+      <a class="cursor-pointer w-full hover:bg-gray-300 px-2 rounded-md duration-150 pb-1"
+         (click)="emitPlaceName(place.nombre)"
+      >
+        <span>
+          {{place.nombre}}
+        </span>
+      </a>
+    }
+  </div>
+
+
+</div>

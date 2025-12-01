@@ -14,6 +14,7 @@ import { NewsService } from '../../services/news-service';
 })
 export default class News implements OnInit {
 
+
   categories : string[] = [
     "Sociedad", "Seguridad", "Salud", "Ciencia", "Tecnología"
   ]

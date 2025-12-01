@@ -1,6 +1,7 @@
 import { Component, input, signal } from '@angular/core';
 import { PlaceModal } from "./place-modal/place-modal";
 import { Place } from '../../../../interfaces/place-interface';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-place-card',
@@ -10,6 +11,7 @@ import { Place } from '../../../../interfaces/place-interface';
 })
 export class PlaceCard {
 
+  imgUrl: string = `${ environment.apiUrl }/negocio/image/`
   placeInfo = input.required<Place>();
 
   acivedPlaceModal: boolean = false;

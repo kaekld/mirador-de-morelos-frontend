@@ -1,18 +1,27 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Footer } from "../../components/footer/footer";
 import { Navbar } from "../../components/navbar/navbar";
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth-service';
+import { UserData } from "./user-data/user-data";
+import { UserPlaces } from "./user-places/user-places";
+import { UserPlaceService } from '../../services/user-place-service';
+import { UserPlace } from "./user-place/user-place";
+import { Place } from '../../interfaces/place-interface';
+import { PlacePosts } from "./place-posts/place-posts";
 
 @Component({
   selector: 'app-profile',
-  imports: [Footer, Navbar],
+  imports: [Footer, Navbar, UserData, UserPlaces, UserPlace, PlacePosts],
   templateUrl: './profile.html',
   styles: ``,
 })
 export class Profile implements OnInit{
 
   authService = inject( AuthService )
+  userPlacesService = inject( UserPlaceService )
+  selectedPlace = signal<Place | null>(null)
+  placeActive: boolean = false;
 
   private entryId: string;
   ownProfile: boolean = false;
@@ -26,6 +35,22 @@ export class Profile implements OnInit{
     if(this.authService.userData()?.id.toString() == this.entryId){
       this.ownProfile = true;
     }
+    this.userPlacesService.loadUserPlacesList(this.entryId);
+  }
+
+  selectPlace(placeName : string): void {
+    this.placeActive = true
+    this.selectedPlace.set(this.searchPlace( this.userPlacesService.userPlacesList(), placeName))
+    console.log(this.selectedPlace()?.id)
+  }
+
+  searchPlace(places: Place[], placeName: string ): Place {
+    for(const place of places){
+      if(place.nombre == placeName){
+        return place;
+      }
+    }
+    throw new Error(`Lugar con nombre "${placeName}" no encontrado.`);
   }
 
 

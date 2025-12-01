@@ -1,11 +1,11 @@
-import { Dia, Horario, MMResponse, Municipio, Tipo } from "../interfaces/mm-interfaces";
 import { Place } from "../interfaces/place-interface";
+import { Dia, Horario, Municipio, Tipo, UserPlace } from "../interfaces/user-place-response";
 
-export class PlaceMapper {
+export class UserPlaceMapper {
 
-  static mapPlaceItemToPlace(item: MMResponse): Place {
+  static mapPlaceItemToPlace(item: UserPlace): Place {
     return {
-      id: null,
+      id: item.id,
       nombre: item.nombre,
       telefono: item.telefono,
       descripcion: item.descripcion,
@@ -25,11 +25,11 @@ export class PlaceMapper {
 
       categories: item.categorias.map((categoria: Municipio) => categoria.nombre.toString()),
 
-      publicaciones: item.publicaciones
+      publicaciones: null
     }
   }
 
-  static mapPlaceItemsToArray(items: MMResponse[]): Place[] {
+  static mapPlaceItemsToArray(items: UserPlace[]): Place[] {
     return items.map(this.mapPlaceItemToPlace);
   }
 

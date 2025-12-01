@@ -1,6 +1,7 @@
 import { NgClass, DatePipe } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 import { Publicaciones } from '../../../../../interfaces/mm-interfaces';
+import { environment } from '../../../../../../environments/environment';
 
 @Component({
   selector: 'app-post-modal',
@@ -9,6 +10,8 @@ import { Publicaciones } from '../../../../../interfaces/mm-interfaces';
   styles: ``,
 })
 export class PostModal {
+
+  imgUrl: string = `${ environment.apiUrl }/publicacion/image/`
 
   placeName = input.required<string>()
   postInfo = input.required<Publicaciones>();

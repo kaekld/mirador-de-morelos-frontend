@@ -5,6 +5,7 @@ import { Navbar } from "../../../components/navbar/navbar";
 import { LucideAngularModule, Instagram, Facebook } from 'lucide-angular';
 import { ActivatedRoute } from '@angular/router';
 import { NewsService } from '../../../services/news-service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-new-entry',
@@ -21,6 +22,7 @@ export class NewEntry implements OnInit{
   Instagram = Instagram;
   Facebook = Facebook;
 
+  imgUrl: string = `${ environment.apiUrl }/noticia/image/`
 
   constructor(private route: ActivatedRoute) {
     const entryId = route.snapshot.params['id'];

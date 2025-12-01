@@ -1,0 +1,9 @@
+
+<div class="grid grid-cols-3 gap-4">
+  @for (post of placePostsService.placesPosts(); track $index) {
+    <app-post-card [cardWidth]="'w-auto'"
+                   [postInfo]="post"
+                   [placeName]="post.titulo"
+    ></app-post-card>
+  }
+</div>

@@ -7,7 +7,7 @@
     <div class="bg-white py-15">
       <div class="w-full flex flex-col gap-5">
 
-          <img src=""
+          <img [src]="`${ imgUrl }${ newsService.newEntry()?.imagen }`"
                class="h-100 w-3/4 object-cover mx-auto"
           >
 
@@ -35,11 +35,6 @@
                 <span>
                   · {{ newsService.newEntry()?.fecha | date:'dd/MM/yyyy' }}
                 </span>
-
-                <!-- <div class="ml-5 flex gap-4">
-                  <lucide-angular [img]="Instagram"></lucide-angular>
-                  <lucide-angular [img]="Facebook"></lucide-angular>
-                </div> -->
 
               </div>
 

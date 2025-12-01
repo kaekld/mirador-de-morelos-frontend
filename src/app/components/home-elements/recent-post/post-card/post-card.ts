@@ -1,6 +1,7 @@
 import { Component, input, signal } from '@angular/core';
 import { PostModal } from "./post-modal/post-modal";
 import { Publicaciones } from '../../../../interfaces/mm-interfaces';
+import { environment } from '../../../../../environments/environment.development';
 
 @Component({
   selector: 'app-post-card',
@@ -9,6 +10,8 @@ import { Publicaciones } from '../../../../interfaces/mm-interfaces';
   styles: ``,
 })
 export class PostCard {
+
+  imgUrl: string = `${ environment.apiUrl }/publicacion/image/`
 
   placeName = input.required<string>()
   postInfo = input.required<Publicaciones>();

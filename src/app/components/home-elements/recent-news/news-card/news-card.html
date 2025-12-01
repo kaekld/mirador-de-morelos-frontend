@@ -10,7 +10,7 @@
       <a class="cursor-pointer"
          [routerLink]="['/news', cardInfo().id]"
       >
-        <img [src]="cardInfo().imagen"
+        <img [src]="`${ imgUrl }${ cardInfo().imagen }`"
              class="h-52 w-full object-cover hover:scale-105
                     duration-150 delay-100">
       </a>

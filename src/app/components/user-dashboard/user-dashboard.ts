@@ -1,13 +1,12 @@
 import { Component, inject, input, output } from '@angular/core';
 import { LoginModal } from "../login-modal/login-modal";
-import { LucideAngularModule, User, X, Store, StickyNote } from 'lucide-angular';
-import { NgClass } from '@angular/common';
+import { LucideAngularModule, User, X, Store, StickyNote, Lock, LogOut } from 'lucide-angular';
 import { AuthService } from '../../services/auth-service';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user-dashboard',
-  imports: [LoginModal, LucideAngularModule, NgClass, RouterLink],
+  imports: [LoginModal, LucideAngularModule, RouterLink],
   templateUrl: './user-dashboard.html',
   styles: ``,
 })
@@ -19,6 +18,8 @@ export class UserDashboard {
   Close = X;
   Store = Store;
   StickyNote = StickyNote;
+  Lock = Lock;
+  LogOut = LogOut;
 
   activedDashboard = input.required<boolean>();
   closeDashboard = output<void>();
@@ -32,4 +33,8 @@ export class UserDashboard {
     this.closeDashboard.emit()
   }
 
+  logout(): void {
+    window.location.reload();
+    this.emitCloseDashboard()
+  }
 }
