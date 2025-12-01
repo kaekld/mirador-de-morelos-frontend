@@ -16,67 +16,83 @@
             </h1>
 
             <!-- Credenciales de usuario  -->
-            <div class="flex flex-col gap-10">
-                <fieldset class="flex gap-3 w-full flex-col">
-
-                  <!-- Nombre -->
+            <form class="flex flex-col gap-3" [formGroup]="userRegisterForm">
+                <!-- Nombre -->
+                <fieldset class="flex flex-col gap-3 w-full">
                   <label for="name" class="font-bold">
                       Nombre
                   </label>
 
                   <input type="text" id="name" name="name"
-                          class="focus:ring-2 focus:ring-stone-500 transition-all ease-out duration-150
-                                outline-0 border-2 border-stone-400 py-2 px-2 font-normal">
+                         class="focus:ring-2 focus:ring-stone-500 transition-all ease-out duration-150
+                                outline-0 border-2 border-stone-400 py-2 px-2 font-normal w-full"
+                         formControlName="name">
+                </fieldset>
 
                   <!-- Apellido parterno -->
+                <fieldset class="flex flex-col gap-3 w-full">
                   <label for="lastname_p" class="font-bold">
                       Apellido paterno
                   </label>
 
                   <input type="text" id="lastname_p" name="lastname_p"
                           class="focus:ring-2 focus:ring-stone-500 transition-all ease-out duration-150
-                                outline-0 border-2 border-stone-400 py-2 px-2 font-normal">
+                                outline-0 border-2 border-stone-400 py-2 px-2 font-normal w-full"
+                         formControlName="lastname_p">
+                </fieldset>
 
-                  <!-- Apellido materno -->
-                  <label for="lastname_p" class="font-bold">
+                <!-- Apellido materno -->
+                <fieldset class="flex flex-col gap-3 w-full">
+                  <label for="lastname_m" class="font-bold">
                       Apellido materno
                   </label>
 
-                  <input type="text" id="lastname_p" name="lastname_p"
+                  <input type="text" id="lastname_m" name="lastname_m"
                           class="focus:ring-2 focus:ring-stone-500 transition-all ease-out duration-150
-                                outline-0 border-2 border-stone-400 py-2 px-2 font-normal">
+                                outline-0 border-2 border-stone-400 py-2 px-2 font-normal w-full"
+                         formControlName="lastname_m">
 
-                  <!-- Correo -->
+                </fieldset>
+
+                <!-- Correo -->
+                <fieldset class="flex flex-col gap-3 w-full">
                   <label for="email" class="font-bold">
                       Correo
                   </label>
 
                   <input type="email" id="email" name="email"
                           class="focus:ring-2 focus:ring-stone-500 transition-all ease-out duration-150
-                                outline-0 border-2 border-stone-400 py-2 px-2 font-normal">
+                                outline-0 border-2 border-stone-400 py-2 px-2 font-normal w-full"
+                         formControlName="email">
+                </fieldset>
 
-
-                  <!-- Contraseña -->
-                  <label for="username" class="font-bold">
+                <!-- Contraseña -->
+                <fieldset class="flex flex-col gap-3 w-full">
+                  <label for="password" class="font-bold">
                       Contraseña
                   </label>
 
-                  <input type="password" id="username" name="username"
+                  <input type="password" id="password" name="password"
                           class="focus:ring-2 focus:ring-stone-500 transition-all ease-out duration-150
-                                outline-0 border-2 border-stone-400 py-2 px-2 font-normal text-sm">
-
+                                outline-0 border-2 border-stone-400 py-2 px-2 font-normal text-sm w-full"
+                         formControlName="password">
                 </fieldset>
+
+            @if(invalid){
+              <span class="text-red-950 mx-auto -mb-5">Hay campos vacios</span>
+            }
 
             <div class="flex flex-col gap-5">
               <button class="bg-green-900 text-xl font-bold text-white w-full px-8 py-2
                                 cursor-pointer hover:bg-green-800 delay-100
-                                duration-250 mb-10"
+                                duration-250 mb-10 mt-5"
+                      (click)="handleSubmit()"
               >
                   Registrarse
               </button>
             </div>
 
-          </div>
+          </form>
 
         </div>
 

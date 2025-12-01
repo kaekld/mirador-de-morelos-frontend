@@ -31,7 +31,7 @@
          @for (place of placesService.placesList(); track $index) {
 
             @for (publicacion of place.publicaciones; track $index) {
-              <app-post-card [cardWidth]="'w-auto'"
+              <app-post-card [cardWidth]="'w-md'"
                              [postInfo]="publicacion"
                              [placeName]="place.nombre"></app-post-card>
             }
