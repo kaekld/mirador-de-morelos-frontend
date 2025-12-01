@@ -29,12 +29,6 @@
 
 </body>
 
-@for (place of placesService.placesList(); track $index) {
-  @for (publicacion of place.publicaciones; track $index) {
-    {{ publicacion.titulo }}
-  }
-}
-
 <footer>
   <app-footer></app-footer>
 </footer>

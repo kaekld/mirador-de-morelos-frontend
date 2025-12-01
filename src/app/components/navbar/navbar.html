@@ -17,12 +17,15 @@
                       class="size-8 stroke-2 cursor-pointer"
                       (click)="toggleDashboard()"
       ></lucide-angular>
+      <app-user-dashboard [activedDashboard]="activedDashboard"
+                          (closeDashboard)="toggleDashboard()"
+                          class="absolute bottom-0 left-0"
+      ></app-user-dashboard>
     </div>
 
 
   </nav>
 </div>
 
-<app-user-dashboard [activedDashboard]="activedDashboard" (closeDashboard)="toggleDashboard()"></app-user-dashboard>
 
 

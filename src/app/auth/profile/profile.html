@@ -1,0 +1,36 @@
+<div class="min-h-screen flex flex-col">
+  <app-navbar></app-navbar>
+
+  <main class="bg-gray-50 w-full pt-12 grow">
+
+      <div class="px-10">
+          <div class="bg-white py-10 px-5 flex">
+            @if(!ownProfile){
+              <span class="text-2xl">Perfil no accesible</span>
+            }
+
+            @else{
+              <div class="flex flex-col">
+                <img [src]="authService.userData()?.imagenPerfil"
+                     class="border-2 rounded-full"
+                >
+
+                <span>
+                  {{ authService.userData()?.nombre }} {{ authService.userData()?.apellidoP }} {{ authService.userData()?.apellidoM }}
+                </span>
+
+                <span>{{ authService.userData()?.email }}</span>
+              </div>
+            }
+
+
+
+          </div>
+      </div>
+
+  </main>
+
+  <footer>
+      <app-footer></app-footer>
+  </footer>
+</div>

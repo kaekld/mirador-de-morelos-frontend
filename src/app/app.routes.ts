@@ -4,6 +4,7 @@ import Places from './pages/places/places';
 import News from './pages/news/news';
 import Posts from './pages/posts/posts';
 import { NewEntry } from './pages/news/new-entry/new-entry';
+import { Profile } from './auth/profile/profile';
 
 export const routes: Routes = [
   {
@@ -23,6 +24,9 @@ export const routes: Routes = [
   },
   {
     path: 'posts', component: Posts
+  },
+  {
+    path: 'profile/:id', component: Profile
   },
   {
     path: '**', redirectTo: 'home'
