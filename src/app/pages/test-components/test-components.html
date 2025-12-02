@@ -1,0 +1,27 @@
+<div class="min-h-screen flex flex-col">
+  <app-navbar></app-navbar>
+
+  <main class="bg-gray-50 w-full pt-12 grow">
+
+      <div class="px-10">
+          <div class="bg-white py-10 px-5 flex">
+
+            <button (click)="toggleShowRegisterPlace()"
+                    class="cursor-pointer p-3 bg-gray-800 text-white"
+            >
+              Open Register Place
+            </button>
+
+          </div>
+      </div>
+
+  </main>
+
+  <footer>
+      <app-footer></app-footer>
+  </footer>
+</div>
+
+<app-new-place [activedForm]="showRegisterPlace"
+               (closeForm)="toggleShowRegisterPlace()"
+></app-new-place>
