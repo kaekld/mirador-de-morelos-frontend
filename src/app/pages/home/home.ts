@@ -24,8 +24,8 @@ export default class Home {
   // handleSubmit(): void {
 
   //     const formData: LoginPayload = {
-  //       email: 'usuario@example.com',
-  //       password: 'kaled21'
+  //       email: 'oscar@example.com',
+  //       password: 'oscar21'
   //     }
 
   //     this.authService.loginUser(formData);

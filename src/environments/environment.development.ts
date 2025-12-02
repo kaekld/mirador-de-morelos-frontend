@@ -1,6 +1,7 @@
 export const environment = {
 
   // URL DE LA API
-  apiUrl: 'https://pjfin7-ip-187-226-140-151.tunnelmole.net/api'
+  apiUrl: 'https://ojy0ky-ip-189-201-81-7.tunnelmole.net/api'
+
 
 };

@@ -3,6 +3,7 @@ import { LoginModal } from "../login-modal/login-modal";
 import { LucideAngularModule, User, X, Store, StickyNote, Lock, LogOut } from 'lucide-angular';
 import { AuthService } from '../../services/auth-service';
 import { RouterLink } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -11,6 +12,8 @@ import { RouterLink } from '@angular/router';
   styles: ``,
 })
 export class UserDashboard {
+
+  imgUrl: string = `${ environment.apiUrl }/usuario/image/`
 
   authService = inject( AuthService )
 

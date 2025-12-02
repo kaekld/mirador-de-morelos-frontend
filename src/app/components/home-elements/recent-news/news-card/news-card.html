@@ -16,10 +16,12 @@
       </a>
     </div>
 
-    <span class="text-2xl font-bold cursor-pointer
-               hover:text-gray-500 duration-200">
+    <a class="text-2xl font-bold cursor-pointer
+               hover:text-gray-500 duration-200"
+               [routerLink]="['/news', cardInfo().id]"
+    >
       {{ cardInfo().titulo }}
-    </span>
+    </a>
 
     <p class="text-md font-light">
       {{ cardInfo().contenido }}

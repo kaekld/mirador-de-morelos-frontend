@@ -9,19 +9,23 @@ import { UserPlaceService } from '../../services/user-place-service';
 import { UserPlace } from "./user-place/user-place";
 import { Place } from '../../interfaces/place-interface';
 import { PlacePosts } from "./place-posts/place-posts";
+import { environment } from '../../../environments/environment';
+import { NewPlace } from "./user-places/new-place/new-place";
 
 @Component({
   selector: 'app-profile',
-  imports: [Footer, Navbar, UserData, UserPlaces, UserPlace, PlacePosts],
+  imports: [Footer, Navbar, UserData, UserPlaces, UserPlace, PlacePosts, NewPlace],
   templateUrl: './profile.html',
   styles: ``,
 })
 export class Profile implements OnInit{
 
+
   authService = inject( AuthService )
   userPlacesService = inject( UserPlaceService )
   selectedPlace = signal<Place | null>(null)
   placeActive: boolean = false;
+  activedNewPlaceForm: boolean = false;
 
   private entryId: string;
   ownProfile: boolean = false;
@@ -53,6 +57,9 @@ export class Profile implements OnInit{
     throw new Error(`Lugar con nombre "${placeName}" no encontrado.`);
   }
 
+  toggleNewPlaceForm() : void {
+    this.activedNewPlaceForm = !this.activedNewPlaceForm;
+  }
 
 
 

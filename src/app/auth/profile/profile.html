@@ -15,6 +15,7 @@
                 <div class="flex flex-col gap-8 sticky top-0">
                   <app-user-data></app-user-data>
                   <app-user-places (placeName)="selectPlace($event)"
+                                   (newPlace)="toggleNewPlaceForm()"
                   ></app-user-places>
                 </div>
 
@@ -42,3 +43,8 @@
       <app-footer></app-footer>
   </footer>
 </div>
+
+<app-new-place [activedForm]="activedNewPlaceForm"
+               (closeForm)="toggleNewPlaceForm()"
+></app-new-place>
+

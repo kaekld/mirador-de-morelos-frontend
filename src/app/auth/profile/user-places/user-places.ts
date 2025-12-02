@@ -10,10 +10,14 @@ import { UserPlaceService } from '../../../services/user-place-service';
 export class UserPlaces {
 
   userPlacesService = inject( UserPlaceService )
+  newPlace = output<void>()
   placeName = output<string>();
 
   emitPlaceName(placename: string): void {
     this.placeName.emit(placename)
   }
 
+  emitNewPlace(){
+    this.newPlace.emit()
+  }
 }

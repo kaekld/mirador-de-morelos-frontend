@@ -13,7 +13,7 @@ export class Carousel {
   selectedBanner = signal(0);
   previousBanner = signal(0);
 
-  changerClass = true;
+  changerClass: boolean = true;
 
   private timer: any;
   private readonly intervalTime = 10000;
@@ -69,7 +69,6 @@ export class Carousel {
   }
 
   nextBanner(): void {
-    console.log(this.selectedBanner)
 
     const total = this.banners.length;
     this.previousBanner.set(this.selectedBanner());
