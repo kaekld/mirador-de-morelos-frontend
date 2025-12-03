@@ -1,0 +1,29 @@
+@if( activedPostModal() ) {
+    <div class="fixed top-0 left-0 bg-gray-800/50 h-screen w-screen z-60 duration-150 flex
+                justify-center items-center"
+         (click)="emitCloseModal()"
+    >
+      <div class="h-fit w-fit flex flex-col gap-5 bg-white rounded-2xl animate-fade-in-right
+                  overflow-y-auto px-15 py-10"
+           (click)="$event.stopPropagation()"
+      >
+        <span class="font-bold text-xl">
+          ¿Estás seguro de querer eliminar el negocio?
+        </span>
+
+        <div class="flex gap-10 justify-between">
+          <button class="text-white bg-green-900 w-45 px-4 py-2 font-bold rounded-md cursor-pointer hover:bg-green-950 duration-200"
+                  (click)="emitCloseModal()"
+          >
+            No, conservar
+          </button>
+          <button class="text-white bg-red-900 w-45 px-4 py-2 font-bold rounded-md cursor-pointer hover:bg-red-950 duration-200"
+                  (click)="deletePlace(); emitCloseModal()"
+          >
+            Sí, eliminar
+          </button>
+        </div>
+
+      </div>
+    </div>
+}

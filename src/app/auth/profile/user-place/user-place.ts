@@ -1,11 +1,12 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { Place } from '../../../interfaces/place-interface';
 import { PlaceModal } from "../../../components/home-elements/highlight-places/place-card/place-modal/place-modal";
 import { environment } from '../../../../environments/environment';
+import { ConfirmDelete } from "./confirm-delete/confirm-delete";
 
 @Component({
   selector: 'app-user-place',
-  imports: [PlaceModal],
+  imports: [PlaceModal, ConfirmDelete],
   templateUrl: './user-place.html',
   styles: ``,
 })
@@ -15,13 +16,18 @@ export class UserPlace {
 
 
   placeInfo = input.required<Place | null>();
-  acivedPlaceModal: boolean = false;
+  acivedPlaceModal = signal<boolean>(false);
+  activedConfirmModal = signal<boolean>(false);
 
-  openPlaceModal(){
-
+  togglePlaceModal(): void{
+    this.acivedPlaceModal.update(
+      value => !value
+    )
   }
 
-  togglePlaceModal(){
-    this.acivedPlaceModal = !this.acivedPlaceModal;
+  toggleConfirmModal(): void {
+    this.activedConfirmModal.update(
+      value => !value
+    )
   }
 }

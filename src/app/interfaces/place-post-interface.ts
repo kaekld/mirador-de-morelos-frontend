@@ -3,11 +3,11 @@ export interface PlacePost {
     telefono:          string;
     idUsuario:         number;
     descripcion:       string;
-    imagen:            string;
+    imagen:            string | null;
     ubicacionUrlGmaps: string;
     idMunicipio:       number;
     horarios:          Horario[];
-    urls:              URL[];
+    urls:              URLs[];
     categorias:        string[];
 }
 
@@ -17,7 +17,7 @@ export interface Horario {
     horaCierre:   string;
 }
 
-export interface URL {
+export interface URLs {
     url:  string;
     tipo: string;
 }

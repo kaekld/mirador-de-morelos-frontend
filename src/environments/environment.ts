@@ -1,6 +1,6 @@
 export const environment = {
 
   // URL DE LA API
-  apiUrl: 'https://efnxpi-ip-189-203-114-124.tunnelmole.net/api'
+  apiUrl: 'https://fmrvrz-ip-187-226-140-151.tunnelmole.net/api'
 
 };

@@ -5,13 +5,13 @@
   </span>
 
   <div class="flex w-full flex-col gap-2 pl-2">
-    <!-- <a class="text-gray-500 cursor-pointer w-full hover:bg-gray-300 px-2 rounded-md duration-150 pb-1"
+    <a class="text-gray-500 cursor-pointer w-full hover:bg-gray-300 px-2 rounded-md duration-150 pb-1"
        (click)="emitNewPlace()"
     >
       <span>
         + Nuevo negocio
       </span>
-    </a> -->
+    </a>
     @for(place of userPlacesService.userPlacesList() ; track $index ){
       <a class="cursor-pointer w-full hover:bg-gray-300 px-2 rounded-md duration-150 pb-1"
          (click)="emitPlaceName(place.nombre)"
@@ -21,7 +21,7 @@
         </span>
       </a>
     }
-    
+
 
   </div>
 </div>

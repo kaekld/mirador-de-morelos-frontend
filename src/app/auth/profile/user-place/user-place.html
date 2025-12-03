@@ -1,6 +1,15 @@
-<div class="w-full h-70 flex gap-4 rouded-md shadow-xl cursor-pointer"
+<div class="w-full h-70 flex gap-4 rouded-md shadow-xl cursor-pointer relative"
      (click)="togglePlaceModal()"
 >
+
+  <div class="absolute top-0 right-0 p-5">
+    <span class="bg-red-900 px-4 py-2 text-white font-bold rounded-md cursor-pointer
+                 hover:bg-red-950 duration-200"
+          (click)="$event.stopPropagation(); toggleConfirmModal()"
+    >
+      Borrar negocio
+    </span>
+  </div>
 
   <img [src]="`${ imgUrl }${ placeInfo()?.imagen }`"
        class="w-1/3 rounded-md">
@@ -21,6 +30,11 @@
 </div>
 
 <app-place-modal [placeInfo]="placeInfo()"
-                 [activedModal]="acivedPlaceModal"
+                 [activedModal]="acivedPlaceModal()"
                  (closeModal)="togglePlaceModal()"
 ></app-place-modal>
+
+<app-confirm-delete [activedPostModal]="activedConfirmModal()"
+                    [placeId]="placeInfo()?.id ?? 0"
+                    (closeModal)="toggleConfirmModal()"
+></app-confirm-delete>

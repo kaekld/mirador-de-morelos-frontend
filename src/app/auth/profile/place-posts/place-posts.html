@@ -1,9 +1,33 @@
 
 <div class="grid grid-cols-3 gap-4">
+  <app-new-post-card
+    [cardWidth]="'w-auto'"
+    [placeId]="placeId()"
+  >
+  </app-new-post-card>
+
   @for (post of placePostsService.placesPosts(); track $index) {
-    <app-post-card [cardWidth]="'w-auto'"
-                   [postInfo]="post"
-                   [placeName]="post.titulo"
-    ></app-post-card>
+    <div class="relative">
+
+      <app-post-card [cardWidth]="'w-auto'"
+                     [postInfo]="post"
+                     [placeName]="post.titulo"
+      ></app-post-card>
+
+      <div class="absolute top-0 right-0 py-4 px-3 animate-fade-in-left">
+        <span class="font-bold text-white bg-red-900 px-3 py-2 rounded-md opacity-50 hover:opacity-100
+                     duration-200 cursor-pointer"
+              (click)="toggleActivedConfirmModal()">
+          Eliminar publicación
+        </span>
+      </div>
+
+      <app-confirm-delete-post [postId]="post.id"
+                               [activedPostModal]="activedConfirmModal()"
+                               (closeModal)="toggleActivedConfirmModal()"
+      ></app-confirm-delete-post>
+
+    </div>
   }
 </div>
+

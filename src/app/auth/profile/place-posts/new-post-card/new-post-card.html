@@ -1,0 +1,20 @@
+<div class="relative cursor-pointer overflow-hidden group rounded-xl animate-fade-in-left h-96
+            flex group"
+     [class]="cardWidth()"
+     (click)="toggleActivedNewPostModal()"
+>
+  <div class="h-96 w-full rounded-xl absolute top-0 left-0
+              bg-linear-to-t from-gray-900/75 to-transparent">
+  </div>
+
+  <div class="absolute top-1/4 right-1/4">
+    <lucide-angular [img]="Plus" class="size-40 group-hover:scale-110 duration-200 delay-150"
+    ></lucide-angular>
+  </div>
+
+</div>
+
+<app-new-post-form [activedNewPostModal]="activedNewPostModal()"
+                   [placeId]="placeId()"
+                   (disableNewPostModal)="toggleActivedNewPostModal()"
+></app-new-post-form>

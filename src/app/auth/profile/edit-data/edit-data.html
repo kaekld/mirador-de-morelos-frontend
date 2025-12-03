@@ -1,0 +1,68 @@
+@if( activedEditForm() ) {
+    <div class="fixed top-0 left-0 bg-gray-800/50 h-screen w-screen z-60 duration-150 flex justify-center items-center"
+         (click)="emitDisableEditForm()"
+    >
+      <div class="h-1/2 md:h-7/8 w-5/6 md:w-1/2 flex bg-white rounded-2xl animate-fade-in-right
+                  "
+           (click)="$event.stopPropagation()"
+      >
+
+        <!-- Contenido  -->
+        <div class="px-20 w-full h-full flex flex-col gap-6 p-10 overflow-y-auto">
+
+            <h1 class="text-4xl font-extrabold w-fit mx-auto">
+                EDITAR USUARIO
+            </h1>
+
+            <form [formGroup]="userDataForm">
+
+              <fieldset class="flex flex-col gap-3 w-full">
+                <label for="email" class="font-semibold text-gray-700">
+                    Correo electrónico
+                </label>
+
+                <input type="email" id="email" name="email"
+                        class="focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all ease-out duration-150 shadow-sm
+                              outline-0 border border-gray-300 py-2 px-3 font-normal w-full rounded-lg hover:border-gray-400
+                              placeholder-stone-400"
+                        formControlName="email"
+                        [placeholder]="defaultInfo.name"
+                        >
+              </fieldset>
+
+              <fieldset class="flex flex-col gap-3 w-full">
+                <label for="password" class="font-semibold text-gray-700">
+                    Contraseña
+                </label>
+
+                <input type="password" id="password" name="password"
+                        class="focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all ease-out duration-150 shadow-sm
+                              outline-0 border border-gray-300 py-2 px-3 font-normal w-full rounded-lg hover:border-gray-400
+                              placeholder-stone-400"
+                        formControlName="password"
+                        placeholder="••••••••"
+                        >
+              </fieldset>
+
+              <fieldset class="flex flex-col gap-3 w-full">
+                <label for="name" class="font-semibold text-gray-700">
+                    Nombre
+                </label>
+
+                <input type="text" id="name" name="name"
+                        class="focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all ease-out duration-150 shadow-sm
+                              outline-0 border border-gray-300 py-2 px-3 font-normal w-full rounded-lg hover:border-gray-400
+                              placeholder-stone-400"
+                        formControlName="name"
+                        [placeholder]="defaultInfo.name"
+                        >
+              </fieldset>
+
+            </form>
+        </div>
+
+      </div>
+
+    </div>
+}
+
