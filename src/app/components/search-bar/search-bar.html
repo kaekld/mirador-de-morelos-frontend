@@ -5,5 +5,7 @@
   <input type="text"
          placeholder="Buscar lugar..."
          class="w-full px-3 outline-0 font-bold text-gray-600 placeholder-stone-400"
+         (keyup.enter)="onSearch(txtSearch.value)"
+         #txtSearch
   >
 </div>

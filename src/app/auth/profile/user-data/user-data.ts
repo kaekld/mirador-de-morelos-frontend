@@ -14,7 +14,7 @@ export class UserData {
   authService = inject( AuthService );
   imgUrl: string = `${ environment.apiUrl }/usuario/image/`
   openEditUser = output<void>()
-  
+
   Pencil = Pencil;
 
   emitOpenEditUser(): void {

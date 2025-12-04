@@ -18,17 +18,6 @@ export class AuthService {
   loginUser(credentials: LoginPayload){
     const url = `${ environment.apiUrl }/usuario/auth`
 
-    this.http.post<LoginReponse>(url, credentials).subscribe({
-      next: (resp) => {
-        this.password.set(credentials.password)
-        this.userData.set(resp.usuario);
-        this.loginMessage.set(resp.mensaje);
-        this.loginSuccessful.set(resp.mensaje === 'Login correcto')
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+    return this.http.post<LoginReponse>(url, credentials)
   }
-
 }

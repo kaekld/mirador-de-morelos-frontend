@@ -29,5 +29,9 @@ export default class News implements OnInit {
     this.newsService.loadNewsList(filter);
   }
 
+  searchNewsList(query: string): void {
+    this.newsService.searchNews(query)
+  }
+
 
 }

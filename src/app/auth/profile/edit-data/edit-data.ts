@@ -6,6 +6,7 @@ import { NgClass } from '@angular/common';
 import { environment } from '../../../../environments/environment';
 import { EditUserService } from '../../../services/edit-user-service';
 import { UpdateUserImageService } from '../../../services/update-user-image-service';
+import { LoginPayload } from '../../../interfaces/auth-interface';
 
 @Component({
   selector: 'app-edit-data',
@@ -21,10 +22,13 @@ export class EditData {
 
   defaultInfo = {
     email: this.authService.userData()?.email,
+    password: this.authService.password(),
     name: this.authService.userData()?.nombre,
     lastname_p: this.authService.userData()?.apellidoP,
     lastname_m: this.authService.userData()?.apellidoM
   }
+
+  updatedProfile = output<LoginPayload>()
 
   activedEditForm = input.required<boolean>()
   disableEditForm = output<void>()
@@ -57,6 +61,10 @@ export class EditData {
     });
   }
 
+  emitUpdatedProfile(credentials: LoginPayload): void {
+    this.updatedProfile.emit(credentials)
+  }
+
   onFileSelected(event: Event): void {
     this.uploadedImage.set(true);
     const file = (event.target as HTMLInputElement).files?.[0];
@@ -73,35 +81,44 @@ export class EditData {
   }
 
   onSubmit(): void {
-    
+
     if(this.userDataForm.value.email === ''){
       this.userDataForm.value.email = this.defaultInfo.email
     }
-    if(this.userDataForm.value.password == ''){
-      this.userDataForm.value.password = this.authService.password
+    if(this.userDataForm.value.password === ''){
+      this.userDataForm.value.password = this.defaultInfo.password
     }
-    if(this.userDataForm.value.name == ''){
+    if(this.userDataForm.value.name === ''){
       this.userDataForm.value.name = this.defaultInfo.name
     }
-    if(this.userDataForm.value.lastname_p == ''){
+    if(this.userDataForm.value.lastname_p === ''){
       this.userDataForm.value.lastname_p = this.defaultInfo.lastname_p
     }
-    if(this.userDataForm.value.lastname_m == ''){
+    if(this.userDataForm.value.lastname_m === ''){
       this.userDataForm.value.lastname_m = this.defaultInfo.lastname_m
     }
 
     const userData: EditUser = {
       id: this.authService.userData()?.id,
       email: this.userDataForm.value.email,
-      password: this.authService.password(),
+      password: this.userDataForm.value.password,
       rol: 'comun',
       nombre: this.userDataForm.value.name,
       apellidoP: this.userDataForm.value.lastname_p,
       apellidoM: this.userDataForm.value.lastname_m
     }
 
-    this.editUserService.updateUser(userData)
-    
+    this.editUserService.updateUser(userData).subscribe({
+      next: (resp) => {
+        console.log(resp)
+        this.emitUpdatedProfile({
+          email: userData.email,
+          password: userData.password
+        })
+      },
+      error: (err) => console.log(err)
+    })
+
     if(this.imagen){
       const imageData = new FormData()
       imageData.append('file', this.imagen, this.imagen.name)

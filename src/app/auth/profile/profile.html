@@ -22,7 +22,9 @@
 
                 @if (placeActive) {
                     <div class="flex flex-col gap-6 grow">
-                      <app-user-place [placeInfo]="selectedPlace()"></app-user-place>
+                      <app-user-place [placeInfo]="selectedPlace()"
+                                      (updatePlacesList)="updatePlaces()"
+                      ></app-user-place>
 
                       <div class="flex flex-col gap-6">
                         <span class="text-3xl font-bold">PUBLICACIONES DEL NEGOCIO</span>
@@ -47,9 +49,11 @@
 
 <app-new-place [activedForm]="activedNewPlaceForm"
                (closeForm)="toggleNewPlaceForm()"
+               (updatePlacesList)="updatePlaces()"
 ></app-new-place>
 
 <app-edit-data [activedEditForm]="activedEditUser()"
                (disableEditForm)="toggleActivedEditUser()"
+               (updatedProfile)="updateProfile($event)"
 ></app-edit-data>
 

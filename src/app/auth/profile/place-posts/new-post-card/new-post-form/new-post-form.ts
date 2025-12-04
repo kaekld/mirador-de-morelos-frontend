@@ -26,6 +26,8 @@ export class NewPostForm {
   imagenPreview = signal<string>('')
   uploadedImage = signal<boolean>(false)
 
+  updatePostCards = output<void>()
+
   constructor(){
     this.titulo = new FormControl('');
     this.contenido = new FormControl('');
@@ -50,6 +52,11 @@ export class NewPostForm {
     }
   }
 
+  emitUpdateCards(): void {
+    this.updatePostCards.emit()
+  }
+
+
   onSubmit(): void {
     const newPostData: NewPost = {
       titulo: this.postForm.value.titulo,
@@ -64,7 +71,18 @@ export class NewPostForm {
       formData.append('publicacion', (new Blob(
         [JSON.stringify(newPostData)], {type: 'application/json'}
       )))
-      this.newPostService.sendNewPost(formData)
+
+      this.newPostService.sendNewPost(formData).subscribe({
+        next: () => {
+          this.emitUpdateCards()
+          this.postForm.reset();
+          this.imagen = null;
+          this.imagenPreview.set('');
+          this.uploadedImage.set(false);
+          this.emitUpdateCards();
+        }
+      })
+
     }
   }
 }

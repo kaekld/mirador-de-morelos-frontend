@@ -51,7 +51,11 @@
 
                 </form>
 
-
+            @if (invalidCredentials()) {
+              <span class="-mb-5 -mt-8 mx-auto text-red-950 font-semibold">
+                Credenciales Invalidas
+              </span>
+            }
 
             <div class="mx-auto flex flex-col gap-5">
                 <button class="bg-red-900 text-xl font-bold text-white w-fit px-8 py-2

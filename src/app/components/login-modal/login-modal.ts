@@ -29,6 +29,8 @@ export class LoginModal{
   email: FormControl;
   password: FormControl;
 
+  invalidCredentials = signal<boolean>(false)
+
   constructor() {
     this.email = new FormControl('');
     this.password = new FormControl('');
@@ -37,15 +39,6 @@ export class LoginModal{
       email: this.email,
       password: this.password
     })
-
-    effect(() => {
-      if (this.activeLogin() && this.authService.loginSuccessful()) {
-        setTimeout(() => {
-          this.toggleSuccessfulModal();
-          this.emitDisable();
-        });
-      }
-    });
 
   }
 
@@ -83,7 +76,21 @@ export class LoginModal{
       password: this.userLoginForm.value.password
     }
 
-    this.authService.loginUser(formData);
+    this.authService.loginUser(formData).subscribe({
+      next: resp => {
+        this.authService.password.set(formData.password)
+        this.authService.userData.set(resp.usuario);
+        this.authService.loginMessage.set(resp.mensaje);
+        this.authService.loginSuccessful.set(resp.mensaje === 'Login correcto')
+        this.invalidCredentials.set(false)
+        this.toggleSuccessfulModal();
+        this.emitDisable();
+      },
+      error: err => {
+        this.invalidCredentials.set(true)
+      },
+    });
 
   }
+
 }

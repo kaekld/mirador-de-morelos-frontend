@@ -1,34 +1,35 @@
-
 <div class="grid grid-cols-3 gap-4">
   <app-new-post-card
     [cardWidth]="'w-auto'"
     [placeId]="placeId()"
+    (updatePostCards)="updatePosts()"
   >
   </app-new-post-card>
 
-  @for (post of placePostsService.placesPosts(); track $index) {
+  @for (post of reversedPosts(); track post.id) {
     <div class="relative">
 
-      <app-post-card [cardWidth]="'w-auto'"
-                     [postInfo]="post"
-                     [placeName]="post.titulo"
+      <app-post-card
+        [cardWidth]="'w-auto'"
+        [postInfo]="post"
+        [placeName]="post.titulo"
       ></app-post-card>
 
       <div class="absolute top-0 right-0 py-4 px-3 animate-fade-in-left">
         <span class="font-bold text-white bg-red-900 px-3 py-2 rounded-md opacity-50 hover:opacity-100
                      duration-200 cursor-pointer"
-              (click)="toggleActivedConfirmModal()">
+              (click)="toggleActivedConfirmModal(post.id)">
           Eliminar publicación
         </span>
       </div>
 
-      <app-confirm-delete-post [postId]="post.id"
-                               [activedPostModal]="activedConfirmModal()"
-                               (closeModal)="toggleActivedConfirmModal()"
-                               (deletedPost)="updatePosts()"
+      <app-confirm-delete-post
+        [postId]="post.id"
+        [activedPostModal]="isModalActive(post.id)"
+        (closeModal)="toggleActivedConfirmModal(post.id)"
+        (deletedPost)="updatePosts()"
       ></app-confirm-delete-post>
 
     </div>
   }
 </div>
-

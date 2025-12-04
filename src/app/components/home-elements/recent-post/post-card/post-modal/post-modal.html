@@ -11,7 +11,9 @@
 
         <!-- Usuario info -->
         <div class="flex items-center gap-2">
-            <span class="text-white text-md font-bold">{{placeName()}}</span>
+            @if(placeName()){
+              <span class="text-white text-md font-bold">{{placeName()}}</span>
+            }
             <span class="text-white text-md"> · {{postInfo().fechaCreacion | date:'dd/MM/yyyy' }}</span>
         </div>
 

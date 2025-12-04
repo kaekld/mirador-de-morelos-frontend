@@ -10,11 +10,8 @@ export class EditUserService {
 
   private http = inject(HttpClient)
 
-  updateUser(updatedData: EditUser): void {
+  updateUser(updatedData: EditUser) {
     const url = `${ environment.apiUrl }/usuario/update`
-    this.http.patch(url, updatedData).subscribe({
-      next: (resp) => console.log(resp),
-      error: (err) => console.log(err)
-    })
+    return this.http.patch(url, updatedData)
   }
 }

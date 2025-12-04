@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { Place } from '../../../interfaces/place-interface';
 import { PlaceModal } from "../../../components/home-elements/highlight-places/place-card/place-modal/place-modal";
 import { environment } from '../../../../environments/environment';
@@ -18,11 +18,16 @@ export class UserPlace {
   placeInfo = input.required<Place | null>();
   acivedPlaceModal = signal<boolean>(false);
   activedConfirmModal = signal<boolean>(false);
+  updatePlacesList = output<void>()
 
   togglePlaceModal(): void{
     this.acivedPlaceModal.update(
       value => !value
     )
+  }
+
+  emitUpdatePlacesList(): void {
+    this.updatePlacesList.emit()
   }
 
   toggleConfirmModal(): void {

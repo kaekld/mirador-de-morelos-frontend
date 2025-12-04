@@ -37,4 +37,5 @@
 <app-confirm-delete [activedPostModal]="activedConfirmModal()"
                     [placeId]="placeInfo()?.id ?? 0"
                     (closeModal)="toggleConfirmModal()"
+                    (updatePlacesList)="emitUpdatePlacesList()"
 ></app-confirm-delete>

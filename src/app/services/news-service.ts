@@ -33,4 +33,15 @@ export class NewsService {
     )
   }
 
+  searchNews(title: string){
+    const url = `${ environment.apiUrl }/noticia/filterByTitulo/${title}`
+    this.http.get<NewResponse[]>(url).subscribe({
+      next: (resp => {
+        const news = NewMapper.mapNewsItemsToArray(resp);
+        this.newsList.set(news)
+      })
+    })
+
+  }
+
 }

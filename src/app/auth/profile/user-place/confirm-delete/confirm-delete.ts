@@ -14,12 +14,21 @@ export class ConfirmDelete {
   closeModal = output<void>();
   placeId = input.required<number>()
   activedPostModal = input.required<boolean>();
+  updatePlacesList = output<void>()
 
   emitCloseModal(){
     this.closeModal.emit()
   }
 
+  emitUpdatePlacesList(): void {
+    this.updatePlacesList.emit()
+  }
+
   deletePlace(){
-    this.deletePlaceService.deletePlace(this.placeId())
+    this.deletePlaceService.deletePlace(this.placeId()).subscribe({
+      next: () => {
+        this.emitUpdatePlacesList()
+      }
+    })
   }
 }

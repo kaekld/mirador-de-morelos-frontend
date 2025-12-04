@@ -1,11 +1,13 @@
 <div class="w-3xs flex flex-col gap-5">
 
   <app-municipios-search [municipios]="municipiosMorelos"
+                         [selectionControl]="selectionControl()"
                          (municipioSelected)="emitMunicipio($event)"
   ></app-municipios-search>
 
   <app-category-search [categories]="categories()"
                        (categorieSelected)="emitCategorie($event)"
+                       [selectionControl]="selectionControl()"
   ></app-category-search>
 
 </div>

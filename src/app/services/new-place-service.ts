@@ -14,10 +14,6 @@ export class NewPlaceService {
 
   sendNewPlace(formData: FormData){
     const url = `${ environment.apiUrl }/negocio/crear`
-    this.http.post<NewPlaceResponse>(url, formData).subscribe({
-      error: (error) => {
-        console.log(error)
-      }
-    })
+    return this.http.post<NewPlaceResponse>(url, formData)
   }
 }

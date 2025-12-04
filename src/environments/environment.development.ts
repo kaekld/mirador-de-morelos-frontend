@@ -1,6 +1,6 @@
 export const environment = {
 
   // URL DE LA API
-  apiUrl: 'http://10.153.110.228:8080/api'
+  apiUrl: 'https://vabvd3-ip-187-226-140-151.tunnelmole.net/api'
 
 };

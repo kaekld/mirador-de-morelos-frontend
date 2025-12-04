@@ -12,8 +12,8 @@
       ></app-sidebar>
 
       <div class="pl-10 w-full flex flex-col gap-5">
-        <!-- <app-search-bar></app-search-bar> -->
-        <!-- <app-municipio-banner class="animate-fade-in-left"></app-municipio-banner> -->
+        <app-search-bar (querySearch)="searchPlacesList($event)"
+        ></app-search-bar>
 
         <div class="flex flex-col gap-5">
           @for(card of placesService.placesList(); track $index){

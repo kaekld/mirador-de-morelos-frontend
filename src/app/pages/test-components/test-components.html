@@ -6,11 +6,15 @@
       <div class="px-10">
           <div class="bg-white py-10 px-5 flex">
 
-            <button (click)="toggleShow()"
+            <button (click)="onSubmit()"
                     class="cursor-pointer p-3 bg-gray-800 text-white"
             >
-              Open Register Place
+              Open
             </button>
+
+            <form [formGroup]="timeForm">
+              <input type="time" formControlName="hora1">
+            </form>
 
           </div>
       </div>
@@ -22,6 +26,4 @@
   </footer>
 </div>
 
-<app-edit-data [activedEditForm]="showModal"
-               (disableEditForm)="toggleShow()"
-></app-edit-data>
+

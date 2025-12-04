@@ -15,7 +15,6 @@ export class PlacePostService {
     this.http.get<Publicaciones[]>(`${ environment.apiUrl }/publicacion/negocio/${ userId }`).subscribe(
       (resp) => {
         this.placesPosts.set(resp)
-        console.log(this.placesPosts())
       }
     )
   }

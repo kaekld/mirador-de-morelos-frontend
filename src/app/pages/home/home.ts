@@ -24,11 +24,21 @@ export default class Home {
   // handleSubmit(): void {
 
   //     const formData: LoginPayload = {
-  //       email: 'oscar@example.com',
+  //       email: 'oscar@gmail.com',
   //       password: 'oscar21'
   //     }
 
-  //     this.authService.loginUser(formData);
+  //     this.authService.loginUser(formData).subscribe({
+  //     next: resp => {
+  //       this.authService.password.set(formData.password)
+  //       this.authService.userData.set(resp.usuario);
+  //       this.authService.loginMessage.set(resp.mensaje);
+  //       this.authService.loginSuccessful.set(resp.mensaje === 'Login correcto')
+  //     },
+  //     error: err => {
+  //       console.log(err)
+  //     },
+  //   });
 
   // }
 

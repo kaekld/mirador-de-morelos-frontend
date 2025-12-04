@@ -17,4 +17,5 @@
 <app-new-post-form [activedNewPostModal]="activedNewPostModal()"
                    [placeId]="placeId()"
                    (disableNewPostModal)="toggleActivedNewPostModal()"
+                   (updatePostCards)="emitUpdatePostCards()"
 ></app-new-post-form>

@@ -12,6 +12,11 @@ export class UserPlaces {
   userPlacesService = inject( UserPlaceService )
   newPlace = output<void>()
   placeName = output<string>();
+  updatePlacesList = output<void>();
+
+  emitUpdatePlacesList(): void {
+    this.updatePlacesList.emit()
+  }
 
   emitPlaceName(placename: string): void {
     this.placeName.emit(placename)

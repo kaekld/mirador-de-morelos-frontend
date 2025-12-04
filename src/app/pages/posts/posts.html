@@ -8,20 +8,18 @@
 
       <app-sidebar [categories]="categories"
                    class="sticky top-0 hidden md:block"
-                   (selection)="changePlaceList($event)"
+                   (selection)="changePostList($event)"
       ></app-sidebar>
 
       <div class="pl-10 w-full flex flex-col gap-5">
-        <!-- <app-search-bar></app-search-bar> -->
+        <app-search-bar (querySearch)="searchPlaceList($event)"
+        ></app-search-bar>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 px-2 justify-center">
-          @for (place of placesService.placesList(); track $index) {
-
-            @for (publicacion of place.publicaciones; track $index) {
+          @for (post of placePosts(); track $index) {
               <app-post-card [cardWidth]="'w-auto'"
-                             [postInfo]="publicacion"
-                             [placeName]="place.nombre"></app-post-card>
-            }
+                             [postInfo]="post.publicacion"
+                             [placeName]="post.negocio"></app-post-card>
           }
         </div>
 

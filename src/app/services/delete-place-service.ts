@@ -11,13 +11,6 @@ export class DeletePlaceService {
 
   deletePlace(userId: number){
     const url = `${ environment.apiUrl }/negocio/delete/${userId}`
-    this.http.delete(url).subscribe({
-      next: (resp) => {
-        console.log(resp)
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    })
+    return this.http.delete(url)
   }
 }

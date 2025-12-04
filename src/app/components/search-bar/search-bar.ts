@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { LucideAngularModule, Search } from 'lucide-angular';
 
 @Component({
@@ -9,4 +9,10 @@ import { LucideAngularModule, Search } from 'lucide-angular';
 })
 export class SearchBar {
   Search = Search;
+  querySearch = output<string>()
+
+  onSearch(query: string){
+    this.querySearch.emit(query)
+  }
+
 }

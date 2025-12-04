@@ -9,12 +9,9 @@ export class NewPostService {
 
   private http = inject(HttpClient)
 
-  sendNewPost(formData: FormData): void {
+  sendNewPost(formData: FormData) {
     const url = `${ environment.apiUrl }/publicacion/nueva`
-    this.http.post(url, formData).subscribe({
-      next: (resp) => console.log(resp),
-      error: (err) => console.log(err)
-    })
+    return this.http.post(url, formData)
   }
 
 }

@@ -19,8 +19,6 @@ export class PostModal {
   closePostModal = output<void>();
   fadeOut: boolean = false;
 
-
-
   emitCLoseModal(): void {
     this.fadeOut = true;
     setTimeout(()=>{

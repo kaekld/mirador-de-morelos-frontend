@@ -36,6 +36,7 @@ export class NewPlace {
 
   activedForm = input.required<boolean>()
   closeForm = output<void>()
+  updatePlacesList = output<void>();
 
   // Datos principales
   placeRegisterForm: FormGroup;
@@ -156,6 +157,10 @@ export class NewPlace {
 
   }
 
+  emitUpdatePlacesList(): void {
+    this.updatePlacesList.emit()
+  }
+
   buildCategoriesArray(): FormArray {
     const arr = this.categories.map(cat => {
       return this.fb.control(cat.checked);
@@ -203,6 +208,42 @@ export class NewPlace {
 
   emitCloseForm(): void {
     this.closeForm.emit()
+  }
+
+  resetForm(): void {
+    this.placeRegisterForm.reset();
+
+    const days = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
+    [this.lunes, this.martes, this.miercoles, this.jueves, this.viernes, this.sabado, this.domingo].forEach((formArray, index) => {
+      formArray.setValue([days[index], '', '']);
+    });
+
+    this.urlsForm.reset();
+
+    const categoriesArray = this.categoryForm.get('selectedCategories') as FormArray;
+    categoriesArray.controls.forEach(control => {
+      control.setValue(false);
+    });
+
+    this.imagePreview.set('');
+    this.uploudedFile.set(false);
+    this.selectedFile = null;
+    this.correctMunicipio.set(false);
+    this.blurMunicipio.set(false);
+
+    this.placeRegisterForm.markAsPristine();
+    this.placeRegisterForm.markAsUntouched();
+    this.scheduleForm.markAsPristine();
+    this.scheduleForm.markAsUntouched();
+    this.urlsForm.markAsPristine();
+    this.urlsForm.markAsUntouched();
+    this.categoryForm.markAsPristine();
+    this.categoryForm.markAsUntouched();
+
+    const fileInputs = document.querySelectorAll('input[type="file"]');
+    fileInputs.forEach(input => {
+      (input as HTMLInputElement).value = '';
+    });
   }
 
   onSubmit(): void {
@@ -258,7 +299,13 @@ export class NewPlace {
       const formData = new FormData()
       formData.append('negocio', (new Blob([JSON.stringify(newPlace)], { type: 'application/json' })))
       formData.append('imagen', this.selectedFile, this.selectedFile.name)
-      this.newPlaceService.sendNewPlace(formData)
+      this.newPlaceService.sendNewPlace(formData).subscribe({
+        next: ()=> {
+          this.emitUpdatePlacesList()
+          this.resetForm();
+          this.emitCloseForm();
+        }
+      })
     }
 
   }

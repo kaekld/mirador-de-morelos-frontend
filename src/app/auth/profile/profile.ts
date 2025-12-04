@@ -12,6 +12,7 @@ import { PlacePosts } from "./place-posts/place-posts";
 import { environment } from '../../../environments/environment';
 import { NewPlace } from "./user-places/new-place/new-place";
 import { EditData } from "./edit-data/edit-data";
+import { LoginPayload } from '../../interfaces/auth-interface';
 
 @Component({
   selector: 'app-profile',
@@ -48,7 +49,6 @@ export class Profile implements OnInit{
   selectPlace(placeName : string): void {
     this.placeActive = true
     this.selectedPlace.set(this.searchPlace( this.userPlacesService.userPlacesList(), placeName))
-    console.log(this.selectedPlace()?.id)
   }
 
   searchPlace(places: Place[], placeName: string ): Place {
@@ -70,5 +70,22 @@ export class Profile implements OnInit{
     )
   }
 
+  updatePlaces(){
+    this.placeActive = false
+    this.userPlacesService.loadUserPlacesList(this.entryId);
+  }
 
+  updateProfile(formData: LoginPayload){
+    this.authService.loginUser(formData).subscribe({
+      next: resp => {
+        this.authService.password.set(formData.password)
+        this.authService.userData.set(resp.usuario);
+        this.authService.loginMessage.set(resp.mensaje);
+        this.authService.loginSuccessful.set(resp.mensaje === 'Login correcto')
+      },
+      error: err => {
+        console.log(err)
+      },
+   })
+  }
 }
