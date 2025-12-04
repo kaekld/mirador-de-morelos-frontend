@@ -11,10 +11,11 @@ import { Place } from '../../interfaces/place-interface';
 import { PlacePosts } from "./place-posts/place-posts";
 import { environment } from '../../../environments/environment';
 import { NewPlace } from "./user-places/new-place/new-place";
+import { EditData } from "./edit-data/edit-data";
 
 @Component({
   selector: 'app-profile',
-  imports: [Footer, Navbar, UserData, UserPlaces, UserPlace, PlacePosts, NewPlace],
+  imports: [Footer, Navbar, UserData, UserPlaces, UserPlace, PlacePosts, NewPlace, EditData],
   templateUrl: './profile.html',
   styles: ``,
 })
@@ -26,6 +27,8 @@ export class Profile implements OnInit{
   selectedPlace = signal<Place | null>(null)
   placeActive: boolean = false;
   activedNewPlaceForm: boolean = false;
+  activedEditUser = signal<boolean>(false)
+
 
   private entryId: string;
   ownProfile: boolean = false;
@@ -61,6 +64,11 @@ export class Profile implements OnInit{
     this.activedNewPlaceForm = !this.activedNewPlaceForm;
   }
 
+  toggleActivedEditUser(): void {
+    this.activedEditUser.update(
+      (value) => !value
+    )
+  }
 
 
 }

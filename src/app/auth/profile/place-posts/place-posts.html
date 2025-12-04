@@ -25,6 +25,7 @@
       <app-confirm-delete-post [postId]="post.id"
                                [activedPostModal]="activedConfirmModal()"
                                (closeModal)="toggleActivedConfirmModal()"
+                               (deletedPost)="updatePosts()"
       ></app-confirm-delete-post>
 
     </div>

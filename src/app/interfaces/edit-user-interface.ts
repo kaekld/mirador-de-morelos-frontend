@@ -1,5 +1,5 @@
 export interface EditUser {
-  id:        number;
+  id:        number | undefined;
   email:     string;
   password:  string;
   rol:       string;

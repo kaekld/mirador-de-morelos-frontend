@@ -1,6 +1,11 @@
-import { Component, inject, input, output } from '@angular/core';
+import { Component, inject, input, output, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth-service';
+import { EditUser } from '../../../interfaces/edit-user-interface';
+import { NgClass } from '@angular/common';
+import { environment } from '../../../../environments/environment';
+import { EditUserService } from '../../../services/edit-user-service';
+import { UpdateUserImageService } from '../../../services/update-user-image-service';
 
 @Component({
   selector: 'app-edit-data',
@@ -11,24 +16,23 @@ import { AuthService } from '../../../services/auth-service';
 export class EditData {
 
   authService = inject ( AuthService )
-
-  // defaultInfo = {
-  //   email: this.authService.userData()?.email,
-  //   name: this.authService.userData()?.nombre,
-  //   lastname_p: this.authService.userData()?.apellidoP,
-  //   lastname_m: this.authService.userData()?.apellidoM
-  // }
+  editUserService = inject ( EditUserService )
+  updateUserImageService = inject ( UpdateUserImageService )
 
   defaultInfo = {
-    email: 'Example@gmail.com',
-    password: 'Hellowda',
-    name: 'ExampleName',
-    lastname_p: 'ExampleLastname1',
-    lastname_m: 'ExampleLastname2'
+    email: this.authService.userData()?.email,
+    name: this.authService.userData()?.nombre,
+    lastname_p: this.authService.userData()?.apellidoP,
+    lastname_m: this.authService.userData()?.apellidoM
   }
 
-  activedEditForm = input<boolean>(true)
+  activedEditForm = input.required<boolean>()
   disableEditForm = output<void>()
+
+  imagen: File | null = null;
+  imagenPreview = signal<string>('')
+  uploadedImage = signal<boolean>(false)
+  imgUrl = signal<string>(`${ environment.apiUrl }/usuario/image/${ this.authService.userData()?.imagenPerfil }`)
 
   userDataForm: FormGroup;
   email: FormControl;
@@ -53,8 +57,57 @@ export class EditData {
     });
   }
 
+  onFileSelected(event: Event): void {
+    this.uploadedImage.set(true);
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if(file){
+      this.imagen = file;
+      const reader = new FileReader();
+      reader.onload = () => this.imagenPreview.set(reader.result as string);
+      reader.readAsDataURL(file);
+    }
+  }
 
   emitDisableEditForm(): void {
     this.disableEditForm.emit()
   }
+
+  onSubmit(): void {
+    
+    if(this.userDataForm.value.email === ''){
+      this.userDataForm.value.email = this.defaultInfo.email
+    }
+    if(this.userDataForm.value.password == ''){
+      this.userDataForm.value.password = this.authService.password
+    }
+    if(this.userDataForm.value.name == ''){
+      this.userDataForm.value.name = this.defaultInfo.name
+    }
+    if(this.userDataForm.value.lastname_p == ''){
+      this.userDataForm.value.lastname_p = this.defaultInfo.lastname_p
+    }
+    if(this.userDataForm.value.lastname_m == ''){
+      this.userDataForm.value.lastname_m = this.defaultInfo.lastname_m
+    }
+
+    const userData: EditUser = {
+      id: this.authService.userData()?.id,
+      email: this.userDataForm.value.email,
+      password: this.authService.password(),
+      rol: 'comun',
+      nombre: this.userDataForm.value.name,
+      apellidoP: this.userDataForm.value.lastname_p,
+      apellidoM: this.userDataForm.value.lastname_m
+    }
+
+    this.editUserService.updateUser(userData)
+    
+    if(this.imagen){
+      const imageData = new FormData()
+      imageData.append('file', this.imagen, this.imagen.name)
+      this.updateUserImageService.uploadImage(imageData, this.authService.userData()?.id ?? 0)
+    }
+
+  }
+
 }

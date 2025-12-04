@@ -28,4 +28,9 @@ export class PlacePosts{
       (value) => !value
     )
   }
+
+  updatePosts(): void {
+    this.placePostsService.loadPostsList(this.placeId());
+  }
+
 }

@@ -33,6 +33,6 @@ export const routes: Routes = [
     path: 'profile/:id', component: Profile
   },
   {
-    path: '**', redirectTo: 'test'
+    path: '**', redirectTo: 'home'
   }
 ];

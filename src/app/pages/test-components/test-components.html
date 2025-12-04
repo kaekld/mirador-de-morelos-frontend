@@ -22,6 +22,6 @@
   </footer>
 </div>
 
-<app-edit-data 
-
+<app-edit-data [activedEditForm]="showModal"
+               (disableEditForm)="toggleShow()"
 ></app-edit-data>

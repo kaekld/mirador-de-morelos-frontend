@@ -15,21 +15,21 @@ import { AuthService } from '../../services/auth-service';
 })
 export default class Home {
 
-  authService = inject( AuthService );
+  // authService = inject( AuthService );
 
-  constructor() {
-    this.handleSubmit()
-  }
+  // constructor() {
+  //   this.handleSubmit()
+  // }
 
-  handleSubmit(): void {
+  // handleSubmit(): void {
 
-      const formData: LoginPayload = {
-        email: 'oscar@example.com',
-        password: 'oscar21'
-      }
+  //     const formData: LoginPayload = {
+  //       email: 'oscar@example.com',
+  //       password: 'oscar21'
+  //     }
 
-      this.authService.loginUser(formData);
+  //     this.authService.loginUser(formData);
 
-  }
+  // }
 
 }

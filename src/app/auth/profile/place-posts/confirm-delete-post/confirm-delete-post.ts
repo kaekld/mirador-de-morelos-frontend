@@ -14,13 +14,24 @@ export class ConfirmDeletePost {
   closeModal = output<void>();
   postId = input.required<number>()
   activedPostModal = input.required<boolean>();
+  deletedPost = output<void>()
 
   emitCloseModal(){
     this.closeModal.emit()
   }
 
+  emitDeletedUser(): void {
+    this.deletedPost.emit()
+  }
+
   deletePost(): void {
-    this.deletePostService.deletePost(this.postId())
+    this.deletePostService.deletePost(this.postId()).subscribe({
+      next: (resp) => {
+        console.log(resp)
+        console.log(this.postId)
+        this.emitDeletedUser()
+      }
+    })
   }
 
 }

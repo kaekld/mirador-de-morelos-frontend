@@ -9,12 +9,9 @@ export class DeletePostService {
 
   private http = inject(HttpClient)
 
-  deletePost(postId: number): void {
+  deletePost(postId: number) {
     const url = `${ environment.apiUrl }/publicacion/delete/${ postId }`
-    this.http.delete(url).subscribe({
-      next: (resp) => console.log(resp),
-      error: (err) => console.log(err)
-    })
+    return this.http.delete(url)
   }
 
 }
