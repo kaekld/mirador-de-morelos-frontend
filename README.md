@@ -11,7 +11,7 @@
 ## About MM-frontend
 Portal de noticias, negocios y publicaciones realizado con Angular, TypeScript y Tailwind. Cuenta con un sistema totalmente funcional para los usuarios anónimos y para los usuarios que planean publicar su negocio 🌱.
 
-Este repositorio es exclusivo del frontend. Por lo que únicamente se encontrará el código hecho en Angular.
+Este repositorio es exclusivo del frontend, por lo que únicamente se encontrará el código hecho en Angular.
 
 ## Usage
 
