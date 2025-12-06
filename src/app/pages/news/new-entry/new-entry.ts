@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { Footer } from "../../../components/footer/footer";
-import { Navbar } from "../../../components/navbar/navbar";
 import { LucideAngularModule, Instagram, Facebook } from 'lucide-angular';
 import { ActivatedRoute } from '@angular/router';
-import { NewsService } from '../../../services/news-service';
+import { NewsService } from '../../../shared/services/news-service';
 import { environment } from '../../../../environments/environment';
+import { Footer } from '../../../shared/components/footer/footer';
+import { Navbar } from '../../../shared/components/navbar/navbar';
 
 @Component({
   selector: 'app-new-entry',

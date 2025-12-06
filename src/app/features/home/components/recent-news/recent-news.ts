@@ -1,0 +1,41 @@
+import { Component, ElementRef, inject, OnInit, signal, viewChild } from '@angular/core';
+import { LucideAngularModule, ChevronRight, ChevronLeft } from 'lucide-angular';
+import NewCard from '../../../../models/NewCard';
+import { NewsService } from '../../../../shared/services/news-service';
+import { NewsCard } from '../../../../shared/components/news-card/news-card';
+
+@Component({
+  selector: 'app-recent-news',
+  imports: [LucideAngularModule, NewsCard],
+  templateUrl: './recent-news.html',
+  styles: ``,
+})
+export class RecentNews implements OnInit{
+
+  cardsContainer = viewChild.required<ElementRef>('cardsContainer');
+
+  // * Iconos
+  ChevronRight = ChevronRight;
+  ChevronLeft = ChevronLeft;
+
+  newsService = inject( NewsService )
+
+  ngOnInit(){
+    this.newsService.loadNewsList('now');
+    console.log(this.newsService.newsList())
+  }
+
+  scrollLeft(): void {
+    this.cardsContainer().nativeElement.scrollBy({
+      left: -500,
+      behavior: 'smooth'
+    });
+  }
+
+  scrollRight(): void {
+    this.cardsContainer().nativeElement.scrollBy({
+      left: 500,
+      behavior: 'smooth'
+    });
+  }
+}

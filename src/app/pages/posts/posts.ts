@@ -1,12 +1,12 @@
 import { Component, inject, signal } from '@angular/core';
-import { Navbar } from "../../components/navbar/navbar";
-import { Sidebar } from "../../components/sidebar/sidebar";
-import { SearchBar } from "../../components/search-bar/search-bar";
-import { Footer } from "../../components/footer/footer";
-import { PostCard } from "../../components/home-elements/recent-post/post-card/post-card";
-import { PlacesService } from '../../services/places-service';
-import { PlaceMapper } from '../../mapper/place-mapper';
-import { Publicaciones } from '../../interfaces/mm-interfaces';
+import { SearchBar } from "../../shared/components/search-bar/search-bar";
+import { PostCard } from "../../shared/components/post-card/post-card";
+import { PlacesService } from '../../shared/services/places-service';
+import { PlaceMapper } from '../../shared/mapper/place-mapper';
+import { Publicaciones } from '../../shared/interfaces/mm-interfaces';
+import { Footer } from '../../shared/components/footer/footer';
+import { Navbar } from '../../shared/components/navbar/navbar';
+import { Sidebar } from '../../shared/components/sidebar/sidebar';
 
 interface PostData {
   publicacion: Publicaciones,

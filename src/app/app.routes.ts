@@ -4,13 +4,9 @@ import Places from './pages/places/places';
 import News from './pages/news/news';
 import Posts from './pages/posts/posts';
 import { NewEntry } from './pages/news/new-entry/new-entry';
-import { Profile } from './auth/profile/profile';
-import TestComponents from './pages/test-components/test-components';
+import { Profile } from './features/profile/components/profile-dashboard/profile';
 
 export const routes: Routes = [
-  {
-    path: 'test', component: TestComponents
-  },
   {
     path: 'home',  component: Home
   },

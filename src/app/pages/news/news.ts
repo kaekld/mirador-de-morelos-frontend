@@ -1,10 +1,10 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { Sidebar } from "../../components/sidebar/sidebar";
-import { SearchBar } from "../../components/search-bar/search-bar";
-import { Footer } from "../../components/footer/footer";
-import { Navbar } from "../../components/navbar/navbar";
-import { NewsCard } from "../../components/home-elements/recent-news/news-card/news-card";
-import { NewsService } from '../../services/news-service';
+import { SearchBar } from "../../shared/components/search-bar/search-bar";
+import { NewsService } from '../../shared/services/news-service';
+import { Footer } from '../../shared/components/footer/footer';
+import { Navbar } from '../../shared/components/navbar/navbar';
+import { NewsCard } from '../../shared/components/news-card/news-card';
+import { Sidebar } from '../../shared/components/sidebar/sidebar';
 
 @Component({
   selector: 'app-news',

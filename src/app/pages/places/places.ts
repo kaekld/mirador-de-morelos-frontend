@@ -1,12 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Navbar } from "../../components/navbar/navbar";
-import { Sidebar } from "../../components/sidebar/sidebar";
-import { Footer } from "../../components/footer/footer";
-import { SearchBar } from "../../components/search-bar/search-bar";
-import { PlaceCard } from "../../components/home-elements/highlight-places/place-card/place-card";
-import { PlacesService } from '../../services/places-service';
-import { PlaceMapper } from '../../mapper/place-mapper';
-import { Place } from '../../interfaces/place-interface';
+import { SearchBar } from "../../shared/components/search-bar/search-bar";
+import { PlaceCard } from "../../shared/components/place-card/place-card";
+import { PlacesService } from '../../shared/services/places-service';
+import { PlaceMapper } from '../../shared/mapper/place-mapper';
+import { Place } from '../../shared/interfaces/place-interface';
+import { Footer } from '../../shared/components/footer/footer';
+import { Navbar } from '../../shared/components/navbar/navbar';
+import { Sidebar } from '../../shared/components/sidebar/sidebar';
 
 @Component({
   selector: 'app-places',

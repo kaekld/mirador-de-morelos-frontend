@@ -1,8 +1,23 @@
+<section align="center">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white"> &nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/Angular-0F0F11.svg?style=for-the-badge&logo=Angular&logoColor=white"> &nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=white">
+</section>
+
+
+
+<p align="center">
+  <img src="public/logo.png" width="50%">
+</p>
+
+## About MM-frontend
+Portal de noticias, negocios y publicaciones realizado con Angular, TypeScript y Tailwind. Cuenta con un sistema totalmente funcional para los usuarios anónimos y para los usuarios que planean publicar su negocio 🌱.
+
 Clonar el repositorio 
 ```shell
 git clone https://github.com/kaekld/mirador-de-morelos-frontend.git
 ```
-Instalar dependencias dentro del proyecto
+Instalar dependencias del proyecto
 ```shell
 npm install 
 ```
@@ -14,3 +29,4 @@ Iniciar servidor
 ```shell
 ng serve
 ```
+
