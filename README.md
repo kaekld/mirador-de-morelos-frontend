@@ -13,6 +13,10 @@
 ## About MM-frontend
 Portal de noticias, negocios y publicaciones realizado con Angular, TypeScript y Tailwind. Cuenta con un sistema totalmente funcional para los usuarios anónimos y para los usuarios que planean publicar su negocio 🌱.
 
+Este repositorio es exclusivo del frontend. Por lo que únicamente se encontrará el código hecho en Angular.
+
+## Usage
+
 Clonar el repositorio 
 ```shell
 git clone https://github.com/kaekld/mirador-de-morelos-frontend.git
