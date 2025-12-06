@@ -1,13 +1,11 @@
-<section align="center">
+<div align="center">
   <img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style=for-the-badge&logo=TypeScript&logoColor=white"> &nbsp;&nbsp;
   <img src="https://img.shields.io/badge/Angular-0F0F11.svg?style=for-the-badge&logo=Angular&logoColor=white"> &nbsp;&nbsp;
-  <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=white">
-</section>
-
-
-
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=white"> 
+</div>
+<br>
 <p align="center">
-  <img src="public/logo.png" width="50%">
+  <img src="public/logo.png" width="40%">
 </p>
 
 ## About MM-frontend
@@ -24,10 +22,6 @@ git clone https://github.com/kaekld/mirador-de-morelos-frontend.git
 Instalar dependencias del proyecto
 ```shell
 npm install 
-```
-Instalar Tailwind CSS
-```shell
-npm install tailwindcss @tailwindcss/postcss postcss --force
 ```
 Iniciar servidor
 ```shell
